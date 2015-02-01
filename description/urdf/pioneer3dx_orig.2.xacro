@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+			 name="pioneer3dx">
+
+	<link name="base_link">
+		<inertial>
+			<mass value="3.5"/>	
+      <origin xyz="-0.025 0 -0.223"/>
+      <inertia ixx="1" ixy="0" ixz="0"
+               iyy="1" iyz="0"
+               izz="1"/>
+  	 	</inertial>
+      <visual name="base_visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry name="pioneer_geom">
+					<mesh filename="package://p2os_urdf/meshes/body.stl"/>
+        </geometry>
+				<material name="base_material">
+					<color rgba="0.73046875 0.109375 0.06640625 1"/>
+				</material>
+	
+			</visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.01 0.01 0.01"/>
+        </geometry>
+      </collision>
+	</link>
+	<link name="chassis_top">
+		<inertial>
+			<mass value="3.5"/>	
+      <origin xyz="-0.025 0 -0.223"/>
+      <inertia ixx="1" ixy="0" ixz="0"
+               iyy="1" iyz="0"
+               izz="1"/>
+  	 	</inertial>
+      <visual name="base_visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry name="pioneer_geom">
+					<mesh filename="package://p2os_urdf/meshes/chassis_top.stl"/>
+        </geometry>
+				<material name="base_material">
+					<color rgba="0.73046875 0.109375 0.06640625 1"/>
+				</material>
+
+			</visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0 0 0"/>
+        </geometry>
+      </collision>
+	</link>
+
+
+	<link name="top_plate">
+			<inertial>
+			<mass value="0"/>	
+      <origin xyz="-0.025 0 -0.223"/>
+      <inertia ixx="1" ixy="0" ixz="0"
+               iyy="1" iyz="0"
+               izz="1"/>
+  	 	</inertial>
+      <visual name="base_visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry name="pioneer_geom">
+					<mesh filename="package://p2os_urdf/meshes/top_plate.stl"/>
+        </geometry>
+				<material name="top_material">
+					<color rgba="0 0 0 1"/>
+				</material>
+			</visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0 0 0"/>
+        </geometry>
+      </collision>
+	</link>
+
+	<link name="caster_plate">
+			<inertial>
+			<mass value="0"/>	
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1" ixy="0" ixz="0"
+               iyy="1" iyz="0"
+               izz="1"/>
+  	 	</inertial>
+      <visual name="base_visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry name="pioneer_geom">
+					<mesh filename="package://p2os_urdf/meshes/caster_plate.stl"/>
+        </geometry>
+				<material name="caster_material">
+					<color rgba="0.5 0.5 0.5 1"/>
+				</material>
+			</visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0 0 0"/>
+        </geometry>
+      </collision>
+	</link>
+	<link name="caster_mount">
+			<inertial>
+			<mass value="0"/>	
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1" ixy="0" ixz="0"
+               iyy="1" iyz="0"
+               izz="1"/>
+  	 	</inertial>
+      <visual name="base_visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry name="pioneer_geom">
+					<mesh filename="package://p2os_urdf/meshes/caster_mount.stl"/>
+        </geometry>
+				<material name="caster_material">
+					<color rgba="0.5 0.5 0.5 1"/>
+				</material>
+			</visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0 0 0"/>
+        </geometry>
+      </collision>
+	</link>
+
+	<link name="sonar">
+			<inertial>
+			<mass value="0"/>	
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1" ixy="0" ixz="0"
+               iyy="1" iyz="0"
+               izz="1"/>
+  	 	</inertial>
+      <visual name="base_visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry name="pioneer_geom">
+					<mesh filename="package://p2os_urdf/meshes/sonars.stl"/>
+        </geometry>
+				<material name="sonar_material">
+					<color rgba=".71875 0.48828125 0 1"/>
+				</material>
+			</visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0 0 0"/>
+        </geometry>
+      </collision>
+	</link>
+	<link name="wheels_link">
+			<inertial>
+			<mass value="0"/>	
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1" ixy="0" ixz="0"
+               iyy="1" iyz="0"
+               izz="1"/>
+  	 	</inertial>
+      <visual name="base_visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry name="pioneer_geom">
+					<mesh filename="package://p2os_urdf/meshes/wheels-center.stl"/>
+        </geometry>
+				<material name="sonar_material">
+					<color rgba=".71875 0.48828125 0 1"/>
+				</material>
+			</visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0 0 0"/>
+        </geometry>
+      </collision>
+	</link>
+	<link name="tires">
+			<inertial>
+			<mass value="0"/>	
+      <origin xyz="-0.025 0 -0.223"/>
+      <inertia ixx="1" ixy="0" ixz="0"
+               iyy="1" iyz="0"
+               izz="1"/>
+  	 	</inertial>
+      <visual name="base_visual">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry name="pioneer_geom">
+					<mesh filename="package://p2os_urdf/meshes/tires.stl"/>
+        </geometry>
+				<material name="top_material">
+					<color rgba="0 0 0 1"/>
+				</material>
+			</visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0 0 0"/>
+        </geometry>
+      </collision>
+	</link>
+	<joint name="base_top_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="top_plate"/>
+	</joint>
+	<joint name="base_chassis_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="chassis_top"/>
+	</joint>
+	<joint name="base_caster_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="caster_plate"/>
+	</joint>
+	<joint name="sonar_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="sonar"/>
+	</joint>
+	<joint name="wheels_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+		<parent link="base_link"/>
+		<child link="wheels_link"/>
+	</joint>
+	<joint name="tires_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+		<child link="tires"/>
+		<parent link="wheels_link"/>
+	</joint>
+	<joint name="plate_caster_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+		<!--<axis xyz="0 0 0" rpy="0 0 1"/>-->
+		<parent link="caster_plate"/>
+		<child link="caster_mount"/>
+	</joint>
+</robot>

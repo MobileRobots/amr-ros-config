@@ -1,0 +1,19 @@
+
+pioneer-lx_velocity_controller:
+  type: "diff_drive_controller/DiffDriveController"
+  left_wheel: 'l_wheel_joint'
+  right_wheel: 'r_wheel_joint'
+  pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+  twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+  base_frame_id: base_footprint
+  enable_odom_tf: true
+  wheel_separation_multiplier: 1.0
+  wheel_radius_multiplier: 1.0
+  linear:
+    x:
+      has_velocity_limits: true
+      max_velocity: 1.8 # m/sec
+  angular:
+    z:
+      has_velocity_limits: true
+      max_velocity: 1.7 # rad/sec

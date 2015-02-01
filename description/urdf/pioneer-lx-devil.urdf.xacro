@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<robot name="pioneer-lx-devil" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- TODO share pioneer lx mobile robot components with pioneer-lx urdf -->
+
+  <link name="base_link">
+
+    <!-- base_link origin point is center of rotation, on the floor. -->
+
+    <inertial>
+      <mass value="57.8" /> <!-- 60 kg minus each wheel -->
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+    </inertial>
+
+    <visual name="base_link_dumb_visual">
+      <geometry name="base_link_dumb_visual_geom">
+        <box size="0.697 0.5 0.333" />
+      </geometry>
+      <origin xyz="0 0 0.2" rpy="0 0 0" /> 
+    </visual>
+
+    <collision name="base_link_dumb_collision">
+      <geometry name="base_link_dumb_collision_geom">
+        <box size="0.697 0.5 0.333" />
+      </geometry>
+      <origin xyz="0 0 0.2" rpy="0 0 0" /> 
+    </collision>
+
+  </link>
+
+
+  <!-- right wheel -->
+
+  <link name="r_wheel_link">
+
+    <inertial>
+      <mass value="1.1" />   <!-- kg -->
+      <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.01" />
+    </inertial>
+
+    <visual name="r_wheel_link_dumb_visual">
+      <geometry name="r_wheel_link_dumb_visual_geom">
+        <cylinder radius="0.100" length="0.05" />
+      </geometry>
+      <origin rpy="1.570796 0 0" />
+    </visual>
+    
+    <collision name="r_wheel_link_collision">
+      <geometry name="r_wheel_link_collision_geom">
+        <cylinder radius="0.100" length="0.05" />
+      </geometry>
+      <origin rpy="1.570796 0 0" />
+    </collision>
+        
+  </link>
+
+  <!-- left wheel -->
+
+  <link name="l_wheel_link">
+
+    <inertial>
+      <mass value="1.1" />   <!-- kg -->
+      <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.01" />
+    </inertial>
+
+    <visual name="l_wheel_link_dumb_visual">
+      <geometry name="l_wheel_link_dumb_visual_geom">
+        <cylinder radius="0.100" length="0.05" />
+      </geometry>
+      <origin rpy="1.570796 0 0" />
+    </visual>
+    
+    <collision name="l_wheel_link_collision">
+      <geometry name="l_wheel_link_collision_geom">
+        <cylinder radius="0.100" length="0.05" />
+      </geometry>
+      <origin rpy="1.570796 0 0" />
+    </collision>
+        
+  </link>
+
+  <!-- wheel joints -->
+
+  <joint name="r_wheel_joint" type="continuous">
+    <origin xyz="0 0.2 0.1" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="r_wheel_link" />
+  </joint>
+
+  <joint name="l_wheel_joint" type="continuous">
+    <origin xyz="0 -0.2 0.1" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="l_wheel_link" />
+  </joint>
+
+
+  <!-- arms -->
+
+  <xacro:include filename="$(find kinova_description)/urdf/jaco2_arm.xacro />
+
+  
+</robot>
+

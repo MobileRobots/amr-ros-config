@@ -1,0 +1,10 @@
+<launch>
+  <arg name="urdf" default="../description/urdf/pioneer-lx.urdf.xacro" />
+  <arg name="robot" default="pioneer-lx" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg urdf)" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model mobile_base" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <rosparam command="load" file="$(arg robot)-control.yaml" />
+  <node name="controller_manager_spawner" pkg="controller_manager" type="spawner" args="$(arg robot)_velocity_controller" />
+</launch>
