@@ -30,22 +30,22 @@
 
   <!-- right wheel -->
 
-  <link name="r_wheel_link">
+  <link name="r_wheel">
 
     <inertial>
       <mass value="1.1" />   <!-- kg -->
       <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.01" />
     </inertial>
 
-    <visual name="r_wheel_link_dumb_visual">
-      <geometry name="r_wheel_link_dumb_visual_geom">
+    <visual name="r_wheel_dumb_visual">
+      <geometry name="r_wheel_dumb_visual_geom">
         <cylinder radius="0.100" length="0.05" />
       </geometry>
       <origin rpy="1.570796 0 0" />
     </visual>
     
-    <collision name="r_wheel_link_collision">
-      <geometry name="r_wheel_link_collision_geom">
+    <collision name="r_wheel_collision">
+      <geometry name="r_wheel_collision_geom">
         <cylinder radius="0.100" length="0.05" />
       </geometry>
       <origin rpy="1.570796 0 0" />
@@ -55,22 +55,22 @@
 
   <!-- left wheel -->
 
-  <link name="l_wheel_link">
+  <link name="l_wheel">
 
     <inertial>
       <mass value="1.1" />   <!-- kg -->
       <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.01" />
     </inertial>
 
-    <visual name="l_wheel_link_dumb_visual">
-      <geometry name="l_wheel_link_dumb_visual_geom">
+    <visual name="l_wheel_dumb_visual">
+      <geometry name="l_wheel_dumb_visual_geom">
         <cylinder radius="0.100" length="0.05" />
       </geometry>
       <origin rpy="1.570796 0 0" />
     </visual>
     
-    <collision name="l_wheel_link_collision">
-      <geometry name="l_wheel_link_collision_geom">
+    <collision name="l_wheel_collision">
+      <geometry name="l_wheel_collision_geom">
         <cylinder radius="0.100" length="0.05" />
       </geometry>
       <origin rpy="1.570796 0 0" />
@@ -83,13 +83,13 @@
   <joint name="r_wheel_joint" type="continuous">
     <origin xyz="0 0.2 0.1" rpy="0 0 0" />
     <parent link="base_link" />
-    <child link="r_wheel_link" />
+    <child link="r_wheel" />
   </joint>
 
   <joint name="l_wheel_joint" type="continuous">
     <origin xyz="0 -0.2 0.1" rpy="0 0 0" />
     <parent link="base_link" />
-    <child link="l_wheel_link" />
+    <child link="l_wheel" />
   </joint>
 
 </robot>
