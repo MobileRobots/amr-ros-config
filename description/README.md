@@ -27,16 +27,24 @@ e.g.:
   check_urdf urdf/pioneer-lx.urdf.xacro
 
 There is a Makefile in the urdf directory that converts all xacro files
-to plain-xml urdf and runs `check_urdf` on it.
+to plain-xml urdf and also runs `check_urdf` on them:
+
+  cd src/amr-ros-config/description/urdf
+  make
 
 Display URDF visually in rviz:
 
-  roslaunch urdf/display.launch urdf:=urdf/pioneer-lx.urdf.xacro
+  roslaunch urdf/display.launch urdf:=urdf/pioneer-lx.urdf
 
 (Note that this is the URDF model only, there is no robot control
 interface and no robot data available including `tf` data.)
 
 Display URDF in bare bones empty gazebo world: (with no control interface yet)
 
-  roslaunch urdf/gazebo.launch urdf:=urdf/pioneer-lx.urdf.xacro robot:=pioneer-lx
+  roslaunch urdf/gazebo.launch urdf:=urdf/pioneer-lx.urdf robot:=pioneer-lx
+
+Note: Make sure to reference the plain-XML URDF files (".urdf"), not the Xacro
+files (".xacro").  If you reference the Xacro, tools may be able to parse 
+part of the description but won't find any results of Xacro inclusions or macros
+resulting in errors about missing elements.
 
