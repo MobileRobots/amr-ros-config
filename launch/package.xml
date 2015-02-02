@@ -1,0 +1,11 @@
+<package>
+  <name>amr_robots_launchfiles</name>
+  <version>1.0.0</version>
+  <description>Example launch files hfor use with rosaria and Adept MobileRobots/ActivMedia robots</description>
+  <maintainer email="reed.hedges@adept.com">Reed Hedges</maintainer> 
+  <url type="website">http://wiki.ros.org/Robots/Pioneer</url>
+  <author email="reed.hedges@adept.com">Reed Hedges</author>
+  <author>Adept MobileRobots</author>
+  <license>BSD</license>
+  <run_depend>roslaunch</run_depend>
+</package>
