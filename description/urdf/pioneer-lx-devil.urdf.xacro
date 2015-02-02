@@ -21,6 +21,9 @@ including macro. -->
         <box size="0.697 0.5 0.333" />
       </geometry>
       <origin xyz="0 0 0.2" rpy="0 0 0" /> 
+      <material name="lx_red_mat">
+        <color rgba="0.8 0.1 0.1 1.0" />
+      </material>
     </visual>
 
     <collision name="base_link_dumb_collision">
@@ -47,6 +50,9 @@ including macro. -->
         <cylinder radius="0.100" length="0.05" />
       </geometry>
       <origin rpy="1.570796 0 0" />
+      <material name="lx_grey_mat">
+        <color rgba="0.8 0.8 0.8 1.0" />
+      </material>
     </visual>
     
     <collision name="r_wheel_collision">
@@ -72,6 +78,9 @@ including macro. -->
         <cylinder radius="0.100" length="0.05" />
       </geometry>
       <origin rpy="1.570796 0 0" />
+      <material name="lx_grey_mat">
+        <color rgba="0.8 0.8 0.8 1.0" />
+      </material>
     </visual>
     
     <collision name="l_wheel_collision">
@@ -133,6 +142,9 @@ including macro. -->
         <box size="0.18 0.2476 0.99" />
         <!-- <origin xyz="-0.02 0 0.867" /> -->
       </geometry>
+      <material name="plinth_darkgrey_mat">
+        <color rgba="0.2 0.2 0.2 1.0" />
+      </material>
     </visual>
 
     <collision name="plinth_dumb_collision">
@@ -170,6 +182,9 @@ including macro. -->
         <box size="0.07 0.25 0.065" />
         <origin xyz="0.03 0 0.035" />
       </geometry>
+      <material name="kinect_black_mat">
+        <color rgba="0.0 0.0 0.0 1.0" />
+      </material>
     </visual>
     <collision name="kinect_collision">
       <geometry name="kinect_visual_geom">
