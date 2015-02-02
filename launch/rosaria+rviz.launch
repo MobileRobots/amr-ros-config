@@ -1,0 +1,9 @@
+<launch>
+  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer-lx.urdf" />
+  <arg name="joint_state_gui" default="False" />
+  <include file="$(find amr_robots_launchfiles)/rosaria.launch">
+    <arg name="urdf" value="$(arg urdf)"/>
+    <arg name="joint_state_gui" value="$(arg joint_state_gui)" />
+  </include>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find amr_robots_launchfiles)/rosaria.rviz" required="true" />
+</launch>
