@@ -12,23 +12,9 @@ include_directories(
 )
 
 
-add_executable(amr_robot_publisher_generic src/publisher.cc)
-target_link_libraries(amr_robot_publisher ${catkin_LIBRARIES})
+#install(DIRECTORY 
+#   launch defs meshes models
+#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+# )
 
-install(TARGETS amr_robot_publisher
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
-add_executable(amr_robot_publisher_p3at src/publisher3at.cc)
-add_executable(amr_robot_publisher_p3dx src/publisher3dx.cc)
-target_link_libraries(amr_robot_publisher_p3at ${catkin_LIBRARIES})
-target_link_libraries(amr_robot_publisher_p3dx ${catkin_LIBRARIES})
-
-install(TARGETS amr_robot_publisher_p3at amr_robot_publisher_p3dx
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
-install(DIRECTORY 
-   launch defs meshes models
-   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
- )
+# TODO rule that generates plain XML URDF files from XACRO

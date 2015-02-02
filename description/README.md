@@ -14,6 +14,10 @@ src     Contains some urdf publisher source code
 Things to try
 -------------
 
+Convert XACRO file to plain-XML URDF file:
+
+  rosrun xacro xacro.py file.urdf.xacro >file.urdf
+
 Validate URDF file syntax:
 
   check_urdf <urdffile>
@@ -22,11 +26,17 @@ e.g.:
 
   check_urdf urdf/pioneer-lx.urdf.xacro
 
+There is a Makefile in the urdf directory that converts all xacro files
+to plain-xml urdf and runs `check_urdf` on it.
+
 Display URDF visually in rviz:
 
-  roslaunch urdf/display.launch model:=urdf/pioneer-lx.urdf.xacro
+  roslaunch urdf/display.launch urdf:=urdf/pioneer-lx.urdf.xacro
 
-Display URDF in bare bones empty gazebo world, with no control:
+(Note that this is the URDF model only, there is no robot control
+interface and no robot data available including `tf` data.)
+
+Display URDF in bare bones empty gazebo world: (with no control interface yet)
 
   roslaunch urdf/gazebo.launch urdf:=urdf/pioneer-lx.urdf.xacro robot:=pioneer-lx
 

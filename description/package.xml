@@ -2,7 +2,7 @@
   <name>amr_robots_description</name>
   <version>1.0.0</version>
   <description>URDF file descriptions for various Adept MobileRobots/ActivMedia robots</description>
-  <maintainer>reed.hedges@adept.com</maintainer> 
+  <maintainer email="reed.hedges@adept.com">Reed Hedges</maintainer> 
 
   <license>BSD</license>
 
