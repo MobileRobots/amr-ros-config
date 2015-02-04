@@ -107,7 +107,13 @@ including macro. -->
   </joint>
 
 
-  <!-- arms -->
+  <!-- Jaco2 arms.  
+
+       The kinova_description package is contained in the
+       Kinovarobotics jaco_ros repository. As of 2/4/2015, you must 
+       check out the "jaco2_import" branch.
+        https://github.com/Kinovarobotics/jaco-ros/tree/jaco2_import
+   -->
 
   <xacro:include filename="$(find kinova_description)/urdf/jaco2_arm.xacro" />
 
@@ -163,7 +169,10 @@ including macro. -->
   </joint>
   
 
- <!-- PTU -->
+ <!-- PTU 
+    The flir_ptu_description package is from the flir_ptu repository:
+    https://github.com/ros-drivers/flir_ptu
+  -->
 
   <xacro:include filename="$(find flir_ptu_description)/urdf/d46.urdf.xacro" />
   <ptu_d46 name="ptu" />
@@ -173,6 +182,7 @@ including macro. -->
     <child link="ptu_base_link" />
     <origin xyz="0 0 0.457" /> <!-- centered on top of plinth. TODO this is a temporary position. note mounting holes for PTU will actually offset a bit, check whether d46.urdf.xacro uses mounting hole, bottom, or center of ptu as its origin. -->
   </joint>
+
 
   <!-- kinect -->
 
