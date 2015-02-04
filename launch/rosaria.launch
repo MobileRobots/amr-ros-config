@@ -1,5 +1,5 @@
 <launch>
-  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer-lx.urdf" />
+  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3dx.urdf" />
   <arg name="joint_state_gui" default="False" />
   <param name="robot_description" textfile="$(arg urdf)" />
   <node name="rosaria" pkg="rosaria" type="RosAria" />
