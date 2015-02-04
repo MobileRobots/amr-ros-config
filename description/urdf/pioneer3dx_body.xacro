@@ -7,7 +7,7 @@
 	   xmlns:xacro="http://ros.org/wiki/xacro"
 	   >
 
-	<include filename="$(find p2os_urdf)/defs/pioneer3dx_wheel.xacro"/>
+	<xacro:include filename="$(find amr_robots_description)/urdf/pioneer3dx_wheel.xacro"/>
 
 	<!-- Chassis description -->
 	<link name="base_link">
@@ -23,7 +23,7 @@
 		<visual name="pioneer_geom">
 			<origin xyz="-0.045 0 0.148" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
-				<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/chassis.stl"/>
+				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/chassis.stl"/>
 			</geometry>
 			<material name="ChassisRed">
 				<color rgba="0.851 0.0 0.0 1.0"/>
@@ -32,7 +32,7 @@
 		<collision>
 			<origin xyz="-0.045 0 0.148" rpy="0 0 0"/>
 				<geometry>
-					<mesh filename="package://p2os_urdf/meshes/p3at_meshes/chassis.stl"/>
+					<mesh filename="package://amr_robots_description/meshes/p3at_meshes/chassis.stl"/>
 				</geometry>
 		</collision>
 	</link>
@@ -51,7 +51,7 @@
 		<visual name="pioneer_geom">
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
-				<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/top.stl"/>
+				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/top.stl"/>
 			</geometry>
 			<material name="TopBlack">
 					<color rgba="0.038 0.038 0.038 1.0"/>
@@ -87,7 +87,7 @@
 	<visual name="pioneer_geom">
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
-			<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/swivel.stl"/>
+			<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/swivel.stl"/>
 		</geometry>
 		<material name="swivel">
 			<color rgba="0.5 0.5 0.5 1"/>
@@ -115,7 +115,7 @@
 	<visual name="pioneer_geom">
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
-			<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/center_hubcap.stl"/>
+			<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/center_hubcap.stl"/>
 		</geometry>
 		<material name="swivel">
 			<color rgba="0.5 0.5 0.5 1"/>
@@ -152,7 +152,7 @@
 	<visual name="pioneer_geom">
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
-			<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/center_wheel.stl"/>
+			<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/center_wheel.stl"/>
 		</geometry>
 		<material name="WheelBlack">
 			<color rgba="0.117 0.117 0.117 1"/>
@@ -161,7 +161,7 @@
 	<collision>
 		<origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/>
 		<geometry>
-			<!--<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/center_wheel.stl"/>-->
+			<!--<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/center_wheel.stl"/>-->
 			<cylinder radius="0.0375" length="0.01"/>
 		</geometry>
 	</collision>
@@ -180,7 +180,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/left_hubcap.stl"/>
+				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/left_hubcap.stl"/>
 			</geometry>
 			<material name="HubcapYellow">
 				<color rgba="1.0 0.811 0.151 1.0"/>
@@ -189,7 +189,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/>
 			<geometry>
-				<!--<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/center_wheel.stl"/>-->
+				<!--<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/center_wheel.stl"/>-->
 				<cylinder radius="0.09" length="0.01"/>
 			</geometry>
 		</collision>
@@ -206,7 +206,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/left_wheel.stl"/>
+				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/left_wheel.stl"/>
 			</geometry>
 			<material name="WheelBlack">
 				<color rgba="0.117 0.117 0.117 1"/>
@@ -228,7 +228,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/right_hubcap.stl"/>
+				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/right_hubcap.stl"/>
 			</geometry>
 			<material name="HubcapYellow">
 				<color rgba="1.0 0.811 0.151 1.0"/>
@@ -237,7 +237,7 @@
 		<collision>
 		<origin xyz="0 0 0" rpy="${-3.1415927/2.0} 0 0"/>
 		<geometry>
-			<!--<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/center_wheel.stl"/>-->
+			<!--<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/center_wheel.stl"/>-->
 			<cylinder radius="0.09" length="0.01"/>
 		</geometry>
 	</collision>
@@ -257,7 +257,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/right_wheel.stl"/>
+				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/right_wheel.stl"/>
 			</geometry>
 			<material name="WheelBlack">
 				<color rgba="0.117 0.117 0.117 1"/>
@@ -285,7 +285,7 @@
 		<visual name="pioneer_geom">
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
-				<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/front_sonar.stl"/>
+				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/front_sonar.stl"/>
 			</geometry>
 			<material name="SonarYellow">
 				<color rgba="0.715 0.583 0.210 1.0"/>
@@ -319,7 +319,7 @@
 		<visual name="back_sonar_vis">
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
-				<mesh filename="package://p2os_urdf/meshes/p3dx_meshes/back_sonar.stl"/>
+				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/back_sonar.stl"/>
 			</geometry>
 			<material name="SonarYellow">
 				<color rgba="0.715 0.583 0.210 1.0"/>
