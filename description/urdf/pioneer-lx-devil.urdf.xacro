@@ -107,7 +107,7 @@ including macro. -->
   </joint>
 
 
-  <!-- Jaco2 arms.  
+  <!-- Jaco2 arms, using lower upward-pointing mounting option.
 
        The kinova_description package is contained in the
        Kinovarobotics jaco_ros repository. As of 2/4/2015, you must 
@@ -130,13 +130,13 @@ including macro. -->
   <joint name="right_arm_attach" type="fixed">
     <child link="right_arm_mount" />
     <parent link="base_link" />
-    <origin xyz="-0.020 0.184 1.240" rpy="0 0 0" />
+    <origin xyz="-0.020 0.184 1.1384" rpy="0 0 0" />
   </joint>
 
   <joint name="left_arm_attach" type="fixed">
     <child link="left_arm_mount" />
     <parent link="base_link" />
-    <origin xyz="-0.020 -0.184 1.240" rpy="0 0 0" />
+    <origin xyz="-0.020 -0.184 1.1384" rpy="0 0 0" />
   </joint>
 
   <!-- "plinth" plus deck (temporary model until we have meshes) -->
