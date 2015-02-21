@@ -6,7 +6,8 @@ URDF, launch files, and other ROS configuration for AMR robots.
 URDF
 ----
 
-URDF descriptions can be found in the `description` subdirectory. 
+URDF descriptions can be found in the `description` subdirectory. This
+directory contains a ROS package named `amr_robots_description`.
 The Pioneer 3 DX and Pioneer 3 AT are
 based on `p2os_urdf` from allenh1 `p2os` package (Allen Hunter/Vanderbuilt
 version) and the
@@ -17,7 +18,8 @@ Launch files
 ------------
 
 Some example launch files have been included in the `launch`
-subdirectory.   
+subdirectory.   This directory contains a ROS package named
+`amr_robots_launchfiles`.
 
 These launch files are intended to be copied and modified 
 for your specific projects and robot configuration.
