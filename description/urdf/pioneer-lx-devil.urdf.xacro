@@ -143,9 +143,10 @@ including macro. -->
 
   <link name="plinth">
   
-    <visual name="plinth_dumb_visual">
-      <geometry name="plinth_dumb_visual_geom">
-        <box size="0.18 0.2476 0.99" />
+    <visual name="plinth_visual">
+      <geometry name="plinth_visual_geom">
+        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/plinth_hull.stl" />
+        <!-- box size="0.18 0.2476 0.99" / -->
         <!-- <origin xyz="-0.02 0 0.867" /> -->
       </geometry>
       <material name="plinth_darkgrey_mat">
@@ -155,7 +156,8 @@ including macro. -->
 
     <collision name="plinth_dumb_collision">
       <geometry name="plinth_dumb_collision_geom">
-        <box size="0.18 0.2476 0.99" />
+        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/plinth_hull.stl" />
+        <!-- box size="0.18 0.2476 0.99" / -->
         <!-- <origin xyz="-0.02 0 0.867" /> -->
       </geometry>
     </collision>

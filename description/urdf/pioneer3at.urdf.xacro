@@ -386,6 +386,7 @@ name="pioneer3at">
 </gazebo>
 
 
+</xacro:macro>
 
 <xacro:p3at_front suffix="left" reflect="1"/>
 <xacro:p3at_front suffix="right" reflect="-1"/>

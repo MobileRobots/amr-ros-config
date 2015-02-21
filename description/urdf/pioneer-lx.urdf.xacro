@@ -12,17 +12,19 @@
     </inertial>
 
     <visual name="base_link_dumb_visual">
-      <geometry name="base_link_dumb_visual_geom">
-        <box size="0.697 0.5 0.333" />
+      <geometry name="base_link_visual_geom">
+        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/pioneer-lx_visual.stl" />
+        <!-- box size="0.697 0.5 0.333" / -->
       </geometry>
-      <origin xyz="0 0 0.2" rpy="0 0 0" /> 
+      <origin xyz="0 0 0.0" rpy="0 0 0" /> 
     </visual>
 
-    <collision name="base_link_dumb_collision">
-      <geometry name="base_link_dumb_collision_geom">
-        <box size="0.697 0.5 0.333" />
+    <collision name="base_link_collision">
+      <geometry name="base_link_collision_geom">
+        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/pioneer-lx_hull.stl" />
+        <!-- box size="0.697 0.5 0.333" / -->
       </geometry>
-      <origin xyz="0 0 0.2" rpy="0 0 0" /> 
+      <origin xyz="0 0 0.0" rpy="0 0 0" /> 
     </collision>
 
   </link>
@@ -37,13 +39,16 @@
       <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.01" />
     </inertial>
 
+<!--
+TODO separate out pioner lx wheels in visual model 
     <visual name="r_wheel_dumb_visual">
       <geometry name="r_wheel_dumb_visual_geom">
         <cylinder radius="0.100" length="0.05" />
       </geometry>
       <origin rpy="1.570796 0 0" />
     </visual>
-    
+   -->
+ 
     <collision name="r_wheel_collision">
       <geometry name="r_wheel_collision_geom">
         <cylinder radius="0.100" length="0.05" />
@@ -62,13 +67,15 @@
       <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.01" />
     </inertial>
 
+<!--
     <visual name="l_wheel_dumb_visual">
       <geometry name="l_wheel_dumb_visual_geom">
         <cylinder radius="0.100" length="0.05" />
       </geometry>
       <origin rpy="1.570796 0 0" />
     </visual>
-    
+   -->
+ 
     <collision name="l_wheel_collision">
       <geometry name="l_wheel_collision_geom">
         <cylinder radius="0.100" length="0.05" />
