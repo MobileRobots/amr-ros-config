@@ -11,20 +11,18 @@
       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
     </inertial>
 
-    <visual name="base_link_dumb_visual">
+    <visual name="base_link_visual">
       <geometry name="base_link_visual_geom">
-        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/pioneer-lx_visual.stl" />
-        <!-- box size="0.697 0.5 0.333" / -->
+        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/pioneer-lx_visual.stl" scale="0.001 0.001 0.001" />
       </geometry>
-      <origin xyz="0 0 0.0" rpy="0 0 0" /> 
+      <origin xyz="0 0 0.0" rpy="0 0 1.570796" /> 
     </visual>
 
     <collision name="base_link_collision">
       <geometry name="base_link_collision_geom">
-        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/pioneer-lx_hull.stl" />
-        <!-- box size="0.697 0.5 0.333" / -->
+        <box size="0.7 0.5 0.35" />
       </geometry>
-      <origin xyz="0 0 0.0" rpy="0 0 0" /> 
+      <origin xyz="0 0 0.2" rpy="0 0 0" /> 
     </collision>
 
   </link>
@@ -99,5 +97,30 @@ TODO separate out pioner lx wheels in visual model
     <child link="l_wheel" />
   </joint>
 
+
+  <!-- pioneer lx deck -->
+  <link name="deck">
+    <visual name="deck_visual">
+      <geometry name="deck_visual_geom">
+        <box size="0.407 0.437 0.076" />
+      </geometry>
+      <material name="lx_deck_mat">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision name="deck_collision">
+      <geometry name="deck_collision_geom">
+        <box size="0.407 0.437 0.076" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="deck_joint" type="fixed"> 
+    <origin xyz="0.075 0 0.410" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="deck" />
+  </joint>
+  
+  
 </robot>
 

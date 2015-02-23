@@ -5,7 +5,6 @@
   <!-- TODO share pioneer lx mobile robot components with pioneer-lx urdf by
 including macro. -->
 
-  <!-- TODO update Pioneer LX, deck and plinth with real meshes. -->
 
   <link name="base_link">
 
@@ -16,21 +15,22 @@ including macro. -->
       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
     </inertial>
 
-    <visual name="base_link_dumb_visual">
-      <geometry name="base_link_dumb_visual_geom">
-        <box size="0.697 0.5 0.333" />
+    <visual name="base_link_visual">
+      <geometry name="base_link_visual_geom">
+        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/pioneer-lx_visual.stl" scale="0.001 0.001 0.001" />
+        <!-- box size="0.697 0.5 0.333" / -->
       </geometry>
-      <origin xyz="0 0 0.2" rpy="0 0 0" /> 
+      <origin xyz="0 0 0" rpy="0 0 1.570796" /> 
       <material name="lx_red_mat">
         <color rgba="0.8 0.1 0.1 1.0" />
       </material>
     </visual>
 
-    <collision name="base_link_dumb_collision">
-      <geometry name="base_link_dumb_collision_geom">
-        <box size="0.697 0.5 0.333" />
+    <collision name="base_link_collision">
+      <geometry name="base_link_collision_geom">
+        <box size="0.697 0.5 0.35" />
       </geometry>
-      <origin xyz="0 0 0.2" rpy="0 0 0" /> 
+      <origin xyz="0 0 0.200" rpy="0 0 0" /> 
     </collision>
 
   </link>
@@ -45,6 +45,8 @@ including macro. -->
       <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.01" />
     </inertial>
 
+<!--
+TODO separate out pioner lx wheels in visual model 
     <visual name="r_wheel_dumb_visual">
       <geometry name="r_wheel_dumb_visual_geom">
         <cylinder radius="0.100" length="0.05" />
@@ -54,6 +56,7 @@ including macro. -->
         <color rgba="0.8 0.8 0.8 1.0" />
       </material>
     </visual>
+-->
     
     <collision name="r_wheel_collision">
       <geometry name="r_wheel_collision_geom">
@@ -73,6 +76,7 @@ including macro. -->
       <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.01" />
     </inertial>
 
+<!--
     <visual name="l_wheel_dumb_visual">
       <geometry name="l_wheel_dumb_visual_geom">
         <cylinder radius="0.100" length="0.05" />
@@ -82,7 +86,8 @@ including macro. -->
         <color rgba="0.8 0.8 0.8 1.0" />
       </material>
     </visual>
-    
+   -->
+ 
     <collision name="l_wheel_collision">
       <geometry name="l_wheel_collision_geom">
         <cylinder radius="0.100" length="0.05" />
@@ -106,6 +111,62 @@ including macro. -->
     <child link="l_wheel" />
   </joint>
 
+  <!-- pioneer lx deck -->
+  <link name="deck">
+    <visual name="deck_visual">
+      <geometry name="deck_visual_geom">
+        <box size="0.407 0.437 0.076" />
+      </geometry>
+      <material name="lx_deck_mat">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision name="deck_collision">
+      <geometry name="deck_collision_geom">
+        <box size="0.407 0.437 0.076" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="deck_joint" type="fixed"> 
+    <origin xyz="0.075 0 0.410" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="deck" />
+  </joint>
+  
+  
+
+
+  <!-- "plinth" -->
+
+  <link name="plinth">
+  
+    <visual name="plinth_visual">
+      <geometry name="plinth_visual_geom">
+        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/pioneer-lx-plinth.stl" scale="0.001 0.001 0.001" />
+        <!-- box size="0.18 0.2476 0.99" / -->
+      </geometry>
+      <material name="plinth_darkgrey_mat">
+        <color rgba="0.2 0.2 0.2 1.0" />
+      </material>
+    </visual>
+
+    <collision name="plinth_collision">
+      <geometry name="plinth_collision_geom">
+        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/pioneer-lx-plinth.stl" scale="0.001 0.001 0.001" />
+        <!-- box size="0.18 0.2476 0.99" / -->
+        <origin xyz="-0.02 0 0.867" />
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="plinth_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="plinth" />
+    <origin xyz="-0.11 0 0.448" />
+  </joint>
+  
 
   <!-- Jaco2 arms, using lower upward-pointing mounting option.
 
@@ -117,62 +178,31 @@ including macro. -->
 
   <xacro:include filename="$(find kinova_description)/urdf/jaco2_arm.xacro" />
 
-  <link name="right_arm_mount">
-  </link>
-
   <link name="left_arm_mount">
   </link>
 
-  <xacro:jaco2_arm parent="right_arm_mount" prefix="right_" />
+  <link name="right_arm_mount">
+  </link>
 
   <xacro:jaco2_arm parent="left_arm_mount" prefix="left_" />
 
-  <joint name="right_arm_attach" type="fixed">
-    <child link="right_arm_mount" />
-    <parent link="base_link" />
-    <origin xyz="-0.020 0.184 1.1384" rpy="0 0 0" />
-  </joint>
+  <xacro:jaco2_arm parent="right_arm_mount" prefix="right_" />
 
   <joint name="left_arm_attach" type="fixed">
     <child link="left_arm_mount" />
     <parent link="base_link" />
+    <origin xyz="-0.020 0.184 1.1384" rpy="0 0 0" />
+  </joint>
+
+  <joint name="right_arm_attach" type="fixed">
+    <child link="right_arm_mount" />
+    <parent link="base_link" />
     <origin xyz="-0.020 -0.184 1.1384" rpy="0 0 0" />
   </joint>
 
-  <!-- "plinth" plus deck (temporary model until we have meshes) -->
-
-  <link name="plinth">
-  
-    <visual name="plinth_visual">
-      <geometry name="plinth_visual_geom">
-        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/plinth_hull.stl" />
-        <!-- box size="0.18 0.2476 0.99" / -->
-        <!-- <origin xyz="-0.02 0 0.867" /> -->
-      </geometry>
-      <material name="plinth_darkgrey_mat">
-        <color rgba="0.2 0.2 0.2 1.0" />
-      </material>
-    </visual>
-
-    <collision name="plinth_dumb_collision">
-      <geometry name="plinth_dumb_collision_geom">
-        <mesh filename="package://amr_robots_description/meshes/pioneer-lx/plinth_hull.stl" />
-        <!-- box size="0.18 0.2476 0.99" / -->
-        <!-- <origin xyz="-0.02 0 0.867" /> -->
-      </geometry>
-    </collision>
-
-  </link>
-
-  <joint name="plinth_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="plinth" />
-    <origin xyz="-0.02 0 0.867" />
-  </joint>
-  
-
  <!-- PTU 
-    The flir_ptu_description package is from the flir_ptu repository:
+    The flir_ptu_description package is either from system packages in
+    /opt/ros/... or from source repository
     https://github.com/ros-drivers/flir_ptu
   -->
 
@@ -182,7 +212,7 @@ including macro. -->
   <joint name="ptu_base_mount" type="fixed">
     <parent link="plinth" />
     <child link="ptu_base_link" />
-    <origin xyz="0 0 0.457" /> <!-- centered on top of plinth. TODO this is a temporary position. note mounting holes for PTU will actually offset a bit, check whether d46.urdf.xacro uses mounting hole, bottom, or center of ptu as its origin. -->
+    <origin xyz="0.152 0.03 0.91" /> 
   </joint>
 
 
@@ -209,6 +239,7 @@ including macro. -->
   <joint name="kinect_mount" type="fixed">
     <parent link="ptu_mount_link" />
     <child  link="kinect" />
+    <origin xyz="0 0 0.0325" />
   </joint>
 
 </robot>
