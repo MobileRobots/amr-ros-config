@@ -643,12 +643,12 @@ TODO separate out pioner lx wheels in visual model
   <joint name="left_arm_attach" type="fixed">
     <child link="left_arm_mount"/>
     <parent link="base_link"/>
-    <origin rpy="0 0 0" xyz="-0.020 0.184 1.1384"/>
+    <origin rpy="0 0 1.5707" xyz="-0.020 0.184 1.1384"/>
   </joint>
   <joint name="right_arm_attach" type="fixed">
     <child link="right_arm_mount"/>
     <parent link="base_link"/>
-    <origin rpy="0 0 0" xyz="-0.020 -0.184 1.1384"/>
+    <origin rpy="0 0 1.5707" xyz="-0.020 -0.184 1.1384"/>
   </joint>
   <!-- PTU 
     The flir_ptu_description package is either from system packages in
