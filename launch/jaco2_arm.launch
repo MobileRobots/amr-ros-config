@@ -21,7 +21,7 @@
   <node name="jaco2_state_publisher"
          pkg="robot_state_publisher"
         type="robot_state_publisher">
-      <remap from="joint_states" to="/$(arg name)/out/joint_state"/>
+      <remap to="joint_states" from="/$(arg name)/out/joint_state"/>
   </node>
 
 </launch>
