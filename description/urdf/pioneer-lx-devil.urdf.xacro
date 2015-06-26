@@ -37,9 +37,9 @@ including macro. -->
       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
     </inertial>
   </link>
-  <joint name="base_link_mass_attach">
+  <joint name="robot_mass_attach" type="fixed">
     <parent link="base_link" />
-    <child link="base_link_mass" />
+    <child link="robot_mass" />
   </joint>
 
 
