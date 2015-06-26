@@ -10,18 +10,18 @@
   <arg name="name" default="jaco2_arm_driver" />
 
   <node name="$(arg name)" pkg="kinova_driver" type="jaco_arm_driver" output="screen" cwd="node">
-    <!-- Set this parameter to use a specific arm on your system    --> 
-    <param name="serial_number" value="$(arg serial_number)" />
-    <param name="tf_prefix" value="$(arg name)_"/>
-    <param name="finger_angle_conv_ratio" value="0.012"/>
-    <remap from="/__name" to="/$(arg name)" />
+    <!-- Set the serial_number parameter to use a specific arm on your system.  Set the name parameter to set the prefix for tfs and topics (e.g. left/right)    --> 
+    <param name="~serial_number" value="$(arg serial_number)" />
+    <param name="~tf_prefix" value="$(arg name)_"/>
+    <param name="~finger_angle_conv_ratio" value="0.012"/>
+    <remap to="/__name" from="/$(arg name)" />
   </node>
     
   <include file="$(find kinova_description)/launch/upload_jaco2.launch"/>
-  <node name="jaco2_state_publisher"
+  <!-- node name="jaco2_state_publisher"
          pkg="robot_state_publisher"
-        type="robot_state_publisher">
-      <remap to="joint_states" from="/$(arg name)/out/joint_state"/>
-  </node>
+        type="robot_state_publisher" -->
+      <!-- remap to="joint_states" from="/$(arg name)/out/joint_state"/ -->
+  <!-- /node -->
 
 </launch>

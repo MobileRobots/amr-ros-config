@@ -1,0 +1,55 @@
+
+<!-- 
+  This launches two jaco2 nodes with emulated arm interfaces: Publishing
+  requests to move the arms (e.g. to .../joint_angles/arm_joint_angles/goal)
+  results in the emulated arm moving immediately to that state, with the result
+  published by the jaco2 node to its .../out/joint_state topic.  The
+  joint_state_publisher in this launch file subscribes to the joint_state of the
+  left and right arms (which are named right_jaco2 and left_jaco2) and publishes 
+  the connected link positions including each arm link, hand, and end effector
+  transforms. 
+  You must have the emulate-kinova-api library built, get it from  
+  https://github.com/MobileRobots/emulate-kinova-api.  Modify the
+  emulate-kinova-api directory argument below or give as a roslaunch argument.
+  You can specify an alternate URDF with the urdf parameter if needed.
+-->
+
+<launch>
+ 
+  <arg name="emulate_kinova_api_dir" default="../../../../emulate-kinova-api" />
+  <arg name="emulate_kinova_api_ver" default="50101" />
+
+  <arg name="use_urdf" default="true" />
+  <param name="use_urdf" value="$(arg use_urdf)" />
+
+  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer-lx-devil.urdf" />
+  <param name="robot_description" textfile="$(arg urdf)" />
+
+  <node name="left_jaco2" pkg="kinova_driver" type="jaco_arm_driver" output="screen" cwd="node">
+    <param name="load_library" value="$(arg emulate_kinova_api_dir)/emulate_kinova_$(arg emulate_kinova_api_ver).so" />
+    <param name="serial_number" value="EM001" />
+    <param name="tf_prefix" value="left_jaco2_"/>
+    <param name="finger_angle_conv_ratio" value="0.012"/>
+    <remap from="/__name" to="/left_jaco2" />
+  </node>
+
+  <node name="right_jaco2" pkg="kinova_driver" type="jaco_arm_driver" output="screen" cwd="node">
+    <param name="load_library" value="$(arg emulate_kinova_api_dir)/emulate_kinova_$(arg emulate_kinova_api_ver).so" />
+    <param name="serial_number" value="EM002" />
+    <param name="tf_prefix" value="right_jaco2_"/>
+    <param name="finger_angle_conv_ratio" value="0.012"/>
+    <remap from="/__name" to="/right_jaco2" />
+  </node>
+    
+    
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />  
+
+  <!-- todo also ptu state -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">  
+    <rosparam param="source_list"> 
+      [/left_jaco2/out/joint_state, /right_jaco2/out/joint_state]
+    </rosparam>
+  </node>
+ 
+
+</launch>

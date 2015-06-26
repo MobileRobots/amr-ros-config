@@ -1,0 +1,51 @@
+
+<!-- This launches all upper components of the Pioneer LX manipulator torso: Two
+     Jaco2 arms, PTU, joint_state_publisher for those, and then the Kinect
+     processor. 
+-->
+
+<launch>
+ 
+  <arg name="use_urdf" default="true" />
+  <param name="use_urdf" value="$(arg use_urdf)" />
+
+  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer-lx-devil.urdf" />
+  <param name="robot_description" textfile="$(arg urdf)" />
+
+  <!-- change these or give as arguments for your specific arms -->
+  <arg name="left_arm_serial_number" default="" />
+  <arg name="right_arm_serial_number" default="" />
+
+  <node name="left_jaco2" pkg="kinova_driver" type="jaco_arm_driver" output="screen" cwd="node">
+    <param name="serial_number" value="$(arg left_arm_serial_number)" />
+    <param name="tf_prefix" value="left_jaco2_"/>
+    <param name="finger_angle_conv_ratio" value="0.012"/>
+    <remap from="/__name" to="/left_jaco2" />
+  </node>
+
+  <node name="right_jaco2" pkg="kinova_driver" type="jaco_arm_driver" output="screen" cwd="node">
+    <param name="serial_number" value="$(arg right_arm_serial_number)" />
+    <param name="tf_prefix" value="right_jaco2_"/>
+    <param name="finger_angle_conv_ratio" value="0.012"/>
+    <remap from="/__name" to="/right_jaco2" />
+  </node>
+    
+  <node name="flir_ptu_driver" pkg="flir_ptu_driver" type="ptu_driver">
+    <param name="port" value="/dev/ttyS0" />
+  </node>
+    
+  <node name="kinect2_bridge" pkg="kinect2_bridge" type="kinect2_bridge">
+    <param name="depth_method" value="opencl" />
+    <param name="reg_method" value="opencl" />
+  </node>
+    
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />  
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">  
+    <rosparam param="source_list"> 
+      [/left_jaco2/out/joint_state, /right_jaco2/out/joint_state, /flir_ptu_driver/state]
+    </rosparam>
+  </node>
+ 
+
+</launch>

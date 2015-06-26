@@ -1,9 +1,7 @@
 <launch>
   <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3dx.urdf" />
-  <arg name="joint_state_gui" default="False" />
   <param name="robot_description" textfile="$(arg urdf)" />
   <node name="rosaria" pkg="rosaria" type="RosAria" />
-  <param name="use_gui" value="$(arg joint_state_gui)"/>
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <!-- node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" / -->
+  <!-- node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" / -->
 </launch>

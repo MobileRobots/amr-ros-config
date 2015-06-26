@@ -1,0 +1,33 @@
+<launch>
+
+  <!--
+    NOTE: The JACO r2 arm is not supported by the old forward kinematics
+    node, so use_urdf mode is necessary.
+  -->
+ 
+  <arg name="use_urdf" default="true" />
+  <arg name="serial_number" default="" />
+  <arg name="name" default="jaco_arm_driver" />
+
+
+  <node name="$(arg name)" pkg="kinova_driver" type="jaco_arm_driver" output="screen" cwd="node">
+    <!-- Set the serial_number parameter to use a specific arm on your system.  Set the name parameter to set the prefix for tfs and topics (e.g. left/right)    --> 
+    <param name="serial_number" value="$(arg serial_number)" />
+    <param name="tf_prefix" value="$(arg name)_"/>
+    <param name="finger_angle_conv_ratio" value="0.012"/>
+    <param name="load_library" value="../../../../emulate-kinova-api/emulate_kinova_50101.so" />
+    <remap from="/__name" to="/$(arg name)" />
+  </node>
+    
+  <!-- this brings in the jaco2 urdf as robot_description: -->
+  <include file="$(find kinova_description)/launch/upload_jaco2.launch"/>
+
+  <node name="jaco2_robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <remap to="joint_states" from="/$(arg name)/out/joint_state"/>
+  </node>
+
+  <node name="jaco2_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <remap to="joint_states" from="/$(arg name)/out/joint_state"/>
+  </node>
+
+</launch>
