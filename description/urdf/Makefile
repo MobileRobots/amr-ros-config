@@ -6,6 +6,7 @@ xacro_files=pioneer-lx.urdf.xacro pioneer-lx-devil.urdf.xacro pioneer3dx.urdf.xa
 urdf_files=$(patsubst %.urdf.xacro,%.urdf,$(xacro_files))
 
 check: $(urdf_files)
+	if ! test -x /usr/bin/check_urdf; then echo "The check_urdf tool is required. Install liburdfdom-tools."; exit 1; fi 
 	for f in $(urdf_files); do echo ; echo $$f:; check_urdf $$f; done
 
 check-%.urdf: %.urdf

@@ -353,6 +353,7 @@ name="pioneer3at">
     <fdir1>0 1 0</fdir1> <!-- is this correct? -->
     <maxVel>1.0</maxVel>
     <minDepth>0.00</minDepth>
+    <material value="Gazebo/Black" />
   </gazebo>
   
   <gazebo reference="p3at_front_${side}_wheel">
@@ -363,6 +364,7 @@ name="pioneer3at">
     <fdir1>0 1 0</fdir1> <!-- is this correct? -->
     <maxVel>1.0</maxVel>
     <minDepth>0.00</minDepth>
+    <material value="Gazebo/Black" />
   </gazebo>
 
 </xacro:macro>
@@ -382,7 +384,10 @@ name="pioneer3at">
     <wheelDiameter>0.215</wheelDiameter>
     <robotBaseFrame>base_link</robotBaseFrame>
     <torque>200</torque>
-    <topicName>cmd_vel</topicName>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <broadcastTF>1</broadcastTF>
   </plugin>
 </gazebo>
 

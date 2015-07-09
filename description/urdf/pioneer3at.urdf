@@ -122,7 +122,6 @@
     <parent link="base_link"/>
     <child link="back_sonar"/>
   </joint>
-  <!-- Front Axles + Wheels + Hubcaps -->
   <link name="p3at_front_left_axle">
     <inertial>
       <mass value="0.1"/>
@@ -218,7 +217,6 @@
     <parent link="p3at_front_left_hub"/>
     <child link="p3at_front_left_wheel"/>
   </joint>
-  <!-- Back Axles + Wheels + Hubcaps -->
   <link name="p3at_back_left_axle">
     <inertial>
       <mass value="0.1"/>
@@ -320,6 +318,7 @@
     <!-- is this correct? -->
     <maxVel>1.0</maxVel>
     <minDepth>0.00</minDepth>
+    <material value="Gazebo/Black"/>
   </gazebo>
   <gazebo reference="p3at_front_left_wheel">
     <kp>1000000.0</kp>
@@ -331,8 +330,8 @@
     <!-- is this correct? -->
     <maxVel>1.0</maxVel>
     <minDepth>0.00</minDepth>
+    <material value="Gazebo/Black"/>
   </gazebo>
-  <!-- Front Axles + Wheels + Hubcaps -->
   <link name="p3at_front_right_axle">
     <inertial>
       <mass value="0.1"/>
@@ -428,7 +427,6 @@
     <parent link="p3at_front_right_hub"/>
     <child link="p3at_front_right_wheel"/>
   </joint>
-  <!-- Back Axles + Wheels + Hubcaps -->
   <link name="p3at_back_right_axle">
     <inertial>
       <mass value="0.1"/>
@@ -530,6 +528,7 @@
     <!-- is this correct? -->
     <maxVel>1.0</maxVel>
     <minDepth>0.00</minDepth>
+    <material value="Gazebo/Black"/>
   </gazebo>
   <gazebo reference="p3at_front_right_wheel">
     <kp>1000000.0</kp>
@@ -541,6 +540,7 @@
     <!-- is this correct? -->
     <maxVel>1.0</maxVel>
     <minDepth>0.00</minDepth>
+    <material value="Gazebo/Black"/>
   </gazebo>
   <gazebo>
     <plugin filename="libgazebo_ros_skid_steer_drive.so" name="skid_steer_drive_controller">
@@ -554,7 +554,10 @@
       <wheelDiameter>0.215</wheelDiameter>
       <robotBaseFrame>base_link</robotBaseFrame>
       <torque>200</torque>
-      <topicName>cmd_vel</topicName>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <broadcastTF>1</broadcastTF>
     </plugin>
   </gazebo>
 </robot>
