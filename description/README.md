@@ -26,6 +26,10 @@ e.g.:
 
   check_urdf urdf/pioneer-lx.urdf.xacro
 
+You will need to install liburdfdom-tools to get `check_urdf`:
+  
+  sudo apt-get install liburdfdom-tools
+
 There is a Makefile in the urdf directory that converts all xacro files
 to plain-xml urdf and also runs `check_urdf` on them:
 

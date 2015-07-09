@@ -136,9 +136,10 @@ name="pioneer3at">
 		<child link="back_sonar"/>
 	</joint>
 
-<!-- Front Axles + Wheels + Hubcaps -->
-<xacro:macro name="p3at_front" params="suffix reflect">
-	<link name="p3at_front_${suffix}_axle">
+<xacro:macro name="p3at_drive_side" params="side reflect">
+
+  <!-- Front Axles + Wheels + Hubcaps -->
+	<link name="p3at_front_${side}_axle">
 		<inertial>
 			<mass value="0.1"/>	
 			<origin xyz="0 0 0"/>
@@ -161,17 +162,17 @@ name="pioneer3at">
 		</geometry>
 	</collision>
 	</link>
-	<gazebo reference="p3at_front_${suffix}_axle">
+	<gazebo reference="p3at_front_${side}_axle">
 		<material value="Gazebo/Grey"/>
 	</gazebo>
 
-	<joint name="base_front_${suffix}_axle_joint" type="fixed">
+	<joint name="base_front_${side}_axle_joint" type="fixed">
 		<origin xyz="0.135 ${reflect*0.156} 0.111" rpy="0 0 0"/>
 		<parent link="base_link"/>
-		<child link="p3at_front_${suffix}_axle"/>
+		<child link="p3at_front_${side}_axle"/>
 	</joint>
 
-	<link name="p3at_front_${suffix}_hub">
+	<link name="p3at_front_${side}_hub">
 		<inertial>
 			<mass value="0.1"/>	
 			<origin xyz="0 0 0"/>
@@ -181,7 +182,7 @@ name="pioneer3at">
 	<visual name="base_visual">
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
-			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/${suffix}_hubcap.stl"/>
+			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/${side}_hubcap.stl"/>
 		</geometry>
 		<material name="HubcapYellow">
 			<color rgba="1.0 0.811 0.151 1.0"/>
@@ -194,17 +195,17 @@ name="pioneer3at">
 		</geometry>
 	</collision>
 	</link>
-	<gazebo reference="p3at_front_${suffix}_hub">
+	<gazebo reference="p3at_front_${side}_hub">
 		<material value="Gazebo/Yellow"/>
 	</gazebo>
 
-	<joint name="base_front_${suffix}_hub_joint" type="fixed">
+	<joint name="base_front_${side}_hub_joint" type="fixed">
 		<origin xyz="0 ${reflect*0.041} 0" rpy="0 0 0"/>
-		<parent link="p3at_front_${suffix}_axle"/>
-		<child link="p3at_front_${suffix}_hub"/>
+		<parent link="p3at_front_${side}_axle"/>
+		<child link="p3at_front_${side}_hub"/>
 	</joint>
 
-	<link name="p3at_front_${suffix}_wheel">
+	<link name="p3at_front_${side}_wheel">
 		<inertial>
 			<mass value="0.5"/>	
 			<origin xyz="0 0 0"/>
@@ -228,22 +229,22 @@ name="pioneer3at">
 		</geometry>
 	</collision>
 	</link>
-	<gazebo reference="p3at_front_${suffix}_wheel">
+	<gazebo reference="p3at_front_${side}_wheel">
 		<material value="Gazebo/Black"/>
 	</gazebo>
 
-	<joint name="p3at_front_${suffix}_wheel_joint" type="continuous">
+	<joint name="p3at_front_${side}_wheel_joint" type="continuous">
   	<axis xyz="0 1 0"/>
     <anchor xyz="0 0 0"/>
     <limit effort="100" velocity="100" />
     <joint_properties damping="0.7"/>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<parent link="p3at_front_${suffix}_hub"/>
-		<child link="p3at_front_${suffix}_wheel"/>
+		<parent link="p3at_front_${side}_hub"/>
+		<child link="p3at_front_${side}_wheel"/>
 	</joint>
 
 <!-- Back Axles + Wheels + Hubcaps -->
-	<link name="p3at_back_${suffix}_axle">
+	<link name="p3at_back_${side}_axle">
 		<inertial>
 			<mass value="0.1"/>	
 			<origin xyz="0 0 0"/>
@@ -266,18 +267,18 @@ name="pioneer3at">
 		</geometry>
 	</collision>
 	</link>
-	<gazebo reference="p3at_back_${suffix}_axle">
+	<gazebo reference="p3at_back_${side}_axle">
 		<material value="Gazebo/Grey"/>
 	</gazebo>
 
-	<joint name="bp3at_back_${suffix}_axle_joint" type="fixed">
+	<joint name="bp3at_back_${side}_axle_joint" type="fixed">
 		<origin xyz="-0.134 ${reflect*0.156} 0.111" rpy="0 0 0"/>
 		<parent link="base_link"/>
-		<child link="p3at_back_${suffix}_axle"/>
+		<child link="p3at_back_${side}_axle"/>
 	</joint>
 
 
-	<link name="p3at_back_${suffix}_hub">
+	<link name="p3at_back_${side}_hub">
 		<inertial>
 			<mass value="0.1"/>	
 			<origin xyz="0 0 0"/>
@@ -287,28 +288,28 @@ name="pioneer3at">
 	<visual name="base_visual">
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
-			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/${suffix}_hubcap.stl"/>
+			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/${side}_hubcap.stl"/>
 		</geometry>
 		<material name="HubcapYellow"/>
 	</visual>
 	<collision>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry>
-			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/${suffix}_hubcap.stl"/>
+			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/${side}_hubcap.stl"/>
 		</geometry>
 	</collision>
 	</link>
-	<gazebo reference="p3at_back_${suffix}_hub">
+	<gazebo reference="p3at_back_${side}_hub">
 		<material value="Gazebo/Yellow"/>
 	</gazebo>
 
-	<joint name="p3at_back_${suffix}_hub_joint" type="fixed">
+	<joint name="p3at_back_${side}_hub_joint" type="fixed">
 		<origin xyz="-0 ${reflect*0.041} 0" rpy="0 0 0"/>
-		<parent link="p3at_back_${suffix}_axle"/>
-		<child link="p3at_back_${suffix}_hub"/>
+		<parent link="p3at_back_${side}_axle"/>
+		<child link="p3at_back_${side}_hub"/>
 	</joint>
 
-	<link name="p3at_back_${suffix}_wheel">
+	<link name="p3at_back_${side}_wheel">
 		<inertial>
 			<mass value="0.5"/>	
 			<origin xyz="0 0 0"/>
@@ -330,21 +331,21 @@ name="pioneer3at">
 		</geometry>
 	</collision>
 	</link>
-	<gazebo reference="p3at_back_${suffix}_wheel">
+	<gazebo reference="p3at_back_${side}_wheel">
 		<material value="Gazebo/Black"/>
 	</gazebo>
 
-	<joint name="p3at_back_${suffix}_wheel_joint" type="continuous">
+	<joint name="p3at_back_${side}_wheel_joint" type="continuous">
 	  <axis xyz="0 1 0"/>
     <anchor xyz="0 0 0"/>
     <limit effort="100" velocity="100" />
     <joint_properties damping="0.7"/>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<parent link="p3at_back_${suffix}_hub"/>
-		<child link="p3at_back_${suffix}_wheel"/>
+		<parent link="p3at_back_${side}_hub"/>
+		<child link="p3at_back_${side}_wheel"/>
 	</joint>
 	
-  <gazebo reference="p3at_back_${suffix}_wheel">
+  <gazebo reference="p3at_back_${side}_wheel">
     <kp>1000000.0</kp> <!-- kp and kd for rubber -->
     <kd>100.0</kd>
     <mu1>10.0</mu1>
@@ -354,7 +355,7 @@ name="pioneer3at">
     <minDepth>0.00</minDepth>
   </gazebo>
   
-  <gazebo reference="p3at_front_${suffix}_wheel">
+  <gazebo reference="p3at_front_${side}_wheel">
     <kp>1000000.0</kp> <!-- kp and kd for rubber -->
     <kd>100.0</kd>
     <mu1>10.0</mu1>
@@ -388,10 +389,8 @@ name="pioneer3at">
 
 </xacro:macro>
 
-<xacro:p3at_front suffix="left" reflect="1"/>
-<xacro:p3at_front suffix="right" reflect="-1"/>
-<xacro:p3at_back suffix="left" reflect="1"/>
-<xacro:p3at_back suffix="right" reflect="-1"/>
+<xacro:p3at_drive_side side="left" reflect="1"/>
+<xacro:p3at_drive_side side="right" reflect="-1"/>
 <xacro:p3at_gazebo_ext/>
 
 

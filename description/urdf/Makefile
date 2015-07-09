@@ -18,10 +18,10 @@ display-%.urdf: %.urdf
 	roslaunch display.launch urdf:=$<
 
 %.urdf: %.urdf.xacro
-	rosrun xacro xacro.py $< >$@
+	mv $@ $@.bak; rosrun xacro xacro.py $< >$@ || mv $@.bak $@
 
 %.urdf: %.xacro
-	rosrun xacro xacro.py $< >$@
+	mv $@ $@.bak; rosrun xacro xacro.py $< >$@ || mv $@.bak $@
 
 info:
 	echo xacro_files=$(xacro_files)
