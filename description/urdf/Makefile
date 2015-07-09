@@ -2,7 +2,7 @@
 default: check
 
 #xacro_files=$(shell find . -name \*.urdf.xacro)
-xacro_files=pioneer-lx.urdf.xacro pioneer-lx-devil.urdf.xacro pioneer3dx.urdf.xacro pioneer3at.urdf.xacro powerbot.urdf.xacro
+xacro_files=pioneer-lx.urdf.xacro pioneer3dx.urdf.xacro pioneer3at.urdf.xacro powerbot.urdf.xacro
 urdf_files=$(patsubst %.urdf.xacro,%.urdf,$(xacro_files))
 
 check: $(urdf_files)
