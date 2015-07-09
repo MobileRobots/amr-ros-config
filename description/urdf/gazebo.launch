@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 
 <launch>
-  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+  <arg name="world_name" default="worlds/empty.world" /> 
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)" />
+  </include>
 
   <arg name="urdf" />
   <arg name="name" default="pioneer_robot" />
