@@ -1,0 +1,10 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3at.urdf" />
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg urdf)" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model mobile_base" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+</launch>
+
