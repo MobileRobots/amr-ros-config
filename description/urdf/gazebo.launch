@@ -1,9 +1,12 @@
+<?xml version="1.0"?>
+
 <launch>
   <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
 
   <arg name="urdf" />
-  <param name="robot_description" command="$(find xacro)/xacro.py $(arg urdf)" />
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model mobile_base" />
+  <arg name="name" default="pioneer_robot" />
+  <param name="robot_description" textfile="$(arg urdf)" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg name)" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
 </launch>
