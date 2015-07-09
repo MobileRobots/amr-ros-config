@@ -8,11 +8,6 @@
 including macro. -->
   <link name="base_link">
     <!-- base_link origin point is center of rotation, on the floor. -->
-    <inertial>
-      <mass value="57.8"/>
-      <!-- 60 kg minus each wheel -->
-      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
-    </inertial>
     <visual name="base_link_visual">
       <geometry name="base_link_visual_geom">
         <mesh filename="package://amr_robots_description/meshes/pioneer-lx/pioneer-lx_visual.stl" scale="0.001 0.001 0.001"/>
@@ -30,6 +25,18 @@ including macro. -->
       <origin rpy="0 0 0" xyz="0 0 0.200"/>
     </collision>
   </link>
+  <!-- for some reason KDL wants this to be a separate link -->
+  <link name="robot_mass">
+    <inertial>
+      <mass value="57.8"/>
+      <!-- 60 kg minus each wheel -->
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+  </link>
+  <joint name="robot_mass_attach" type="fixed">
+    <parent link="base_link"/>
+    <child link="robot_mass"/>
+  </joint>
   <!-- right wheel -->
   <link name="r_wheel">
     <inertial>
@@ -275,7 +282,7 @@ TODO separate out pioner lx wheels in visual model
       </geometry>
     </collision>
   </link>
-  <joint name="left_jaco_joint_5" type="continuous">
+  <joint name="left_jaco2_joint_5" type="continuous">
     <parent link="left_jaco2_link_4"/>
     <child link="left_jaco2_link_5"/>
     <axis xyz="0 0 -1"/>
@@ -297,7 +304,7 @@ TODO separate out pioner lx wheels in visual model
       </geometry>
     </collision>
   </link>
-  <joint name="left_jaco_joint_6" type="continuous">
+  <joint name="left_jaco2_joint_6" type="continuous">
     <parent link="left_jaco2_link_5"/>
     <child link="left_jaco2_link_hand"/>
     <axis xyz="0 0 -1"/>
@@ -520,7 +527,7 @@ TODO separate out pioner lx wheels in visual model
       </geometry>
     </collision>
   </link>
-  <joint name="right_jaco_joint_5" type="continuous">
+  <joint name="right_jaco2_joint_5" type="continuous">
     <parent link="right_jaco2_link_4"/>
     <child link="right_jaco2_link_5"/>
     <axis xyz="0 0 -1"/>
@@ -542,7 +549,7 @@ TODO separate out pioner lx wheels in visual model
       </geometry>
     </collision>
   </link>
-  <joint name="right_jaco_joint_6" type="continuous">
+  <joint name="right_jaco2_joint_6" type="continuous">
     <parent link="right_jaco2_link_5"/>
     <child link="right_jaco2_link_hand"/>
     <axis xyz="0 0 -1"/>
