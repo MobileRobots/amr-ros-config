@@ -1,5 +1,8 @@
 <launch>
-  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+  <arg name="world_name" default="worlds/empty.world" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+	<arg name="world_name" value="$(arg world_name)" />
+  </include>
 
   <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3at.urdf" />
   <arg name="name" default="pioneer3at" />

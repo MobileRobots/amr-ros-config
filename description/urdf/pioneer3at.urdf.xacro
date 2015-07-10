@@ -383,7 +383,7 @@ name="pioneer3at">
 <gazebo>
   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
     <updateRate>100.0</updateRate>
-    <robotNamespace>/</robotNamespace>
+    <robotNamespace>sim_p3at</robotNamespace>
     <leftFrontJoint>p3at_front_left_wheel_joint</leftFrontJoint>
     <rightFrontJoint>p3at_front_right_wheel_joint</rightFrontJoint>
     <leftRearJoint>p3at_back_left_wheel_joint</leftRearJoint>
@@ -393,9 +393,9 @@ name="pioneer3at">
     <robotBaseFrame>base_link</robotBaseFrame>
     <MaxForce>5.0</MaxForce>
     <torque>200</torque>
-    <commandTopic>cmd_vel</commandTopic>
-    <odometryTopic>odom</odometryTopic>
-    <odometryFrame>odom</odometryFrame>
+    <commandTopic>sim_p3at/cmd_vel</commandTopic>
+    <odometryTopic>sim_p3at/odom</odometryTopic>
+    <odometryFrame>sim_p3at/odom</odometryFrame>
     <broadcastTF>1</broadcastTF>
   </plugin>
 </gazebo>
