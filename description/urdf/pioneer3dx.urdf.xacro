@@ -56,7 +56,8 @@
 		</visual>
 	</link>
 	<gazebo reference="top_plate">
-		<material value="Gazebo/Black"/>
+		<!-- material value="Gazebo/Black"/ -->
+		<material>Gazebo/Black</material>
 	</gazebo>
 
     <joint name="base_top_joint" type="fixed">
