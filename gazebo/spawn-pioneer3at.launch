@@ -1,0 +1,14 @@
+<launch>
+  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3at.urdf" />
+  <arg name="x" default="0" />
+  <arg name="y" default="0" />
+  <arg name="z" default="0.5" />
+  <arg name="name" default="pioneer3at_robot" />
+  <include file="$(find amr_robots_gazebo)/spawn.launch">
+	<arg name="urdf" value="$(arg urdf)" />
+	<arg name="x" value="$(arg x)" />
+	<arg name="y" value="$(arg y)" />
+	<arg name="z" value="$(arg z)" />
+  </include>
+</launch>
+

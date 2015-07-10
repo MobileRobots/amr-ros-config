@@ -1,0 +1,12 @@
+<launch>
+  <arg name="urdf" />
+  <arg name="x" default="0" />
+  <arg name="y" default="0" />
+  <arg name="z" default="0.5" />
+  <arg name="name" default="pioneer_robot" />
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg urdf)" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg name) -x $(arg x) -y $(arg y) -z $(arg z)" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+</launch>
+

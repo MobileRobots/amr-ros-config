@@ -1,0 +1,15 @@
+<package>
+  <name>amr_robots_gazebo</name>
+  <version>1.0.0</version>
+  <description>Example gazebo world, model and launch files for simulating Adept MobileRobots/ActivMedia robots for use with ROS</description>
+  <maintainer email="reed.hedges@adept.com">Reed Hedges</maintainer> 
+  <url type="website">http://wiki.ros.org/Robots/Pioneer</url>
+  <author email="reed.hedges@adept.com">Reed Hedges</author>
+  <author>Adept MobileRobots</author>
+  <license>BSD</license>
+  <run_depend>gazebo_ros_pkgs</run_depend>
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/models" />
+    <gazebo_ros gazebo_media_path="${prefix}/models" />
+  </export>
+</package>
