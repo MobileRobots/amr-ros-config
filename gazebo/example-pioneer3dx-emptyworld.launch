@@ -1,4 +1,5 @@
 <launch>
+
   <env name="GAZEBO_MODEL_PATH" value="$GAZEBO_MODEL_PATH:$(find amr_robots_gazebo)/models" />
   <env name="GAZEBO_RESOURCE_PATH" value="$GAZEBO_RESOURCE_PATH:$(find amr_robots_gazebo)/models" />
 
@@ -7,8 +8,8 @@
 	<arg name="world" value="$(arg world)" />
   </include>
 
-  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3at.urdf" />
-  <arg name="name" default="pioneer3at" />
+  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3dx.urdf" />
+  <arg name="name" default="pioneer3dx" />
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg urdf)" />
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg name)" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />

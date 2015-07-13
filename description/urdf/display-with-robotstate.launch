@@ -1,0 +1,6 @@
+<launch>
+	<arg name="urdf" />
+	<param name="robot_description" textfile="$(arg urdf)" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find amr_robots_description)/urdf/display_urdf.rviz" required="true" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+</launch>

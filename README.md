@@ -6,13 +6,14 @@ URDF, launch files, and other ROS configuration for AMR robots.
 URDF
 ----
 
-URDF descriptions can be found in the `description` subdirectory. This
+URDF robot model descriptions can be found in the `description` subdirectory. This
 directory contains a ROS package named `amr_robots_description`.
 The Pioneer 3 DX and Pioneer 3 AT are
-based on `p2os_urdf` from allenh1 `p2os` package (Allen Hunter/Vanderbuilt
-version) and the
-original `p2os` package.  Other URDF models have been added
-by Adept MobileRobots.
+based on various sources including` p2os_urdf` from allenh1 `p2os` package (Allen Hunter/Vanderbuilt
+version), Dereck Wonacott, the
+original `p2os` package, and others  Other URDF models have been added
+by Adept MobileRobots.  Most URDF files should  be useable as models
+in Gazebo (see Gazebo below).
 
 Launch files
 ------------
@@ -56,6 +57,23 @@ default.
 Some launch files also take other arguments, such as
 `joint_state_gui` (boolean) to display the joint state
 publisher GUI window. 
+
+
+Gazebo
+------
+
+Some example Gazebo configuration can be found in the `gazebo`
+directory. This directory contains a ROS package named
+`amr_robots_gazebo` which can be used to reference files contained
+within it from other launch files, etc.  
+
+See gazebo/README.md for more information about using the 
+Gazebo simulator.
+
+See <http://wiki.ros.org/Robots/Pioneer> for more discussion
+about the differences between using Gazebo and other ROS simulators , or 
+rosaria with MobileSim or a real robot.
+
 
 
 

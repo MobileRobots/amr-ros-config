@@ -1,0 +1,3 @@
+<launch>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find amr_robots_description)/urdf/display_urdf.rviz" required="true" />
+</launch>

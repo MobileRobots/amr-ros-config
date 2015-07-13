@@ -1,11 +1,14 @@
 <launch>
+  <env name="GAZEBO_MODEL_PATH" value="$GAZEBO_MODEL_PATH:$(find amr_robots_gazebo)/models" />
+  <env name="GAZEBO_RESOURCE_PATH" value="$GAZEBO_RESOURCE_PATH:$(find amr_robots_gazebo)/models" />
+
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  <arg name="verbose" default="false"/>
-  <arg name="world_name" default="$(find amr_robots_gazebo)/moon.world" />
+  <arg name="verbose" default="true"/>
+  <arg name="world" default="$(find amr_robots_gazebo)/moon.world" />
   <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3at.urdf" />
 
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg urdf)" />
@@ -29,9 +32,13 @@
   <arg unless="$(arg debug)" name="script_type" value="gzserver"/>
   <arg     if="$(arg debug)" name="script_type" value="debug"/>
 
+  <!-- add our own models directory to models path -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find amr_robots_gazebo)/models:GAZEBO_MODEL_PATH" />
+  <env name="GAZEBO_RESOURCE_PATH" value="$(find amr_robots_gazebo)/models:$GAZEBO_RESOURCE_PATH" />
+
   <!-- start gazebo server-->
   <node name="gazebo" pkg="gazebo_ros" type="$(arg script_type)" respawn="false" output="screen"
-	args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) $(arg world_name)" />
+	args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) $(arg world)" />
 	
   <!-- start gazebo client -->
   <group if="$(arg gui)">

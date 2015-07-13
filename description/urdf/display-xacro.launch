@@ -1,0 +1,5 @@
+<launch>
+	<arg name="xacro" />
+	<param name="robot_description" command="$(find xacro)/xacro.py $(arg xacro)" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find amr_robots_description)/urdf/display_urdf.rviz" required="true" />
+</launch>

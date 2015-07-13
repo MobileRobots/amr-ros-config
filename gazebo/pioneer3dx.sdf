@@ -1,0 +1,287 @@
+<sdf version='1.5'>
+  <model name='pioneer3dx'>
+    <link name='base_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0.000133842 0 0.000672573 0 -0 0</pose>
+        <mass>3.5101</mass>
+        <inertia>
+          <ixx>4.00055</ixx>
+          <ixy>0</ixy>
+          <ixz>0.000109102</ixz>
+          <iyy>4.00057</iyy>
+          <iyz>0</iyz>
+          <izz>4.00002</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_collision_base_link_1'>
+        <pose>0.109 0 0.209 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0 0 0</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_collision_base_link_2'>
+        <pose>-0.198 0 0.208 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0 0 0</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_collision_base_link_3'>
+        <pose>0 0.15 0.08 -1.5708 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.09</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='base_link_collision_base_link_4'>
+        <pose>0 -0.15 0.08 -1.5708 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.09</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>-0.045 0 0.148 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/chassis.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_base_link_1'>
+        <pose>0.109 0 0.209 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/back_sonar.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_base_link_2'>
+        <pose>-0.198 0 0.208 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/front_sonar.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_base_link_3'>
+        <pose>-0.045 0 0.234 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/top.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_base_link_4'>
+        <pose>0 0.15 0.08 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/left_hubcap.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_base_link_5'>
+        <pose>0 0.15 0.08 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/left_wheel.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_base_link_6'>
+        <pose>0 -0.15 0.08 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/right_hubcap.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_base_link_7'>
+        <pose>0 -0.15 0.08 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/right_wheel.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay/>
+      <velocity_decay/>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <link name='caster_swivel'>
+      <pose>-0.185 0 0.055 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='caster_swivel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0 0 0</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='caster_swivel_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/caster_swivel.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Grey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='base_caster_swivel_joint' type='revolute'>
+      <child>caster_swivel</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='caster_wheel'>
+      <pose>-0.211 0 0.039 0 -0 0</pose>
+      <inertial>
+        <pose>-0.000318182 0 -9.09091e-05 0 -0 0</pose>
+        <mass>0.11</mass>
+        <inertia>
+          <ixx>0.0248235</ixx>
+          <ixy>-0.00142347</ixy>
+          <ixz>0.00100543</ixz>
+          <iyy>0.0304364</iyy>
+          <iyz>-8.54693e-06</iyz>
+          <izz>0.0235281</izz>
+        </inertia>
+      </inertial>
+      <collision name='caster_wheel_collision'>
+        <pose>0 0 0 -1.5708 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.0375</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='caster_wheel_collision_caster_wheel_1'>
+        <pose>-0.0035 0 -0.001 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='caster_wheel_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/caster_wheel.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='caster_wheel_visual_caster_wheel_1'>
+        <pose>-0.0035 0 -0.001 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://amr_robots_description/meshes/p3dx_meshes/caster_hubcap.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='caster_swivel_hubcap_joint' type='revolute'>
+      <child>caster_wheel</child>
+      <parent>caster_swivel</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <static>0</static>
+    <plugin name='differential_drive_controller' filename='libgazebo_ros_diff_drive.so'>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100</updateRate>
+      <leftJoint>left_wheel_joint</leftJoint>
+      <rightJoint>right_wheel_joint</rightJoint>
+      <wheelSeparation>0.158</wheelSeparation>
+      <wheelDiameter>0.12</wheelDiameter>
+      <torque>5</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+    </plugin>
+  </model>
+</sdf>
