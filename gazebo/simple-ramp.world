@@ -24,7 +24,9 @@
     </include>
 
     <!-- a ramp. The meshes must be copied from models/nist_simple_ramp_120 to
-~/.gazebo/models/. -->
+~/.gazebo/models/, or you must set GAZEBO_MODEL_PATH environment variable to
+include the models directory either in the launch file using <env.../>, or in
+your shell.  -->
     <model name="ramp2">
       <static>true</static>
       <link name="nist_simple_ramp_120_link">
@@ -51,3 +53,4 @@
 
   </world>
 </sdf>
+
