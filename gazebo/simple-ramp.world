@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+
+    <physics type='ode'>
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>100</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+    </physics>
+
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <include>
+      <uri>model://cinderblock2</uri>
+    </include>
+
+    <!-- a ramp. The meshes must be copied from models/nist_simple_ramp_120 to
+~/.gazebo/models/. -->
+    <model name="ramp2">
+      <static>true</static>
+      <link name="nist_simple_ramp_120_link">
+        <pose>-5 0 0.0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ramp2/meshes/nist_simple_ramp_120.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://ramp2/meshes/nist_simple_ramp_120.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+
+  </world>
+</sdf>

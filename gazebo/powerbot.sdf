@@ -1,0 +1,51 @@
+<sdf version='1.5'>
+  <model name='powerbot'>
+    <link name='base_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.448512 0.33719 0.238636 0 -0 0</pose>
+        <mass>121</mass>
+        <inertia>
+          <ixx>5.89388</ixx>
+          <ixy>-0.0704141</ixy>
+          <ixz>1.26453</ixz>
+          <iyy>5.82861</iyy>
+          <iyz>-0.0630159</iyz>
+          <izz>3.92997</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0.24 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.9 0.68 0.48</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_collision_base_link_1'>
+        <pose>0.27 0 0.075 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 0.15 0.15</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>-0.1 0 0.24 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.9 0.68 0.48</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name='base_link_visual_base_link_1'>
+        <pose>0.27 0 0.075 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 0.15 0.15</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

@@ -7,6 +7,19 @@ For more information about using Gazebo with ROS, start at <http://wiki.ros.org/
 and also read the documentation at <http://gazebosim.org>, especially <http://gazebosim.org/tutorials?cat=connect_ros>
 
 
+These launch files also add the "models" subdirectory found here to the
+`GAZEBO_MODEL_PATH` and `GAZEBO_RESOURCE_PATH` environment variables before
+running Gazebo, so you can reference the example models there.  If you want to
+keep your own separate models directory, either use `~/.gazebo/models`, or
+remove these `<env ... />` tags and set `GAZEBO_MODEL_PATH` and
+`GAZEBO_RESOURCE_PATH` in your shell. For example:
+
+    export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/my_gazebo_models
+    export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:~/my_gazebo_models
+
+You will need to structure your models directory as described in
+<http://gazebosim.org/tutorials?tut=model_structure&cat=build_robot>.
+
 example-world.launch 
 --------------------
 An example roslaunch file that runs Gazebo with a simple empty world.
@@ -66,9 +79,4 @@ in example environments defined by a heightmap.  For the moon enivironment to wo
 may need to copy the `apollo11_landing_site_1000x1000` model to your ~/.gazebo/models
 directory, especially for older versions of Gazebo.  Note that gravity is moon-scale
 in the moon environment, so behavior of the robot may be unusual.
-
-If you have already launched Gazebo with a desired world and just want to create robots
-plus other neccesary nodes (such as robot_state_publisher) for use with ROS, you can use
-the `spawn-pioneer3at.launch`, `spawn-pioneer3dx.launch`, etc files, or use spawn.launch
-but specify a `urdf` argument with the path to a URDF file for the robot to create.
 
