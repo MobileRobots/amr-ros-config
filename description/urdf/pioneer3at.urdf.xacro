@@ -8,12 +8,21 @@ name="pioneer3at">
 
 <!-- Chassis -->
 	<link name="base_link">
+
+
+		<!--  For pointers on inertial and gazebo-related parameters see
+		       * http://wiki.ros.org/urdf/Tutorials/Adding%20Physical%20and%20Collision%20Properties%20to%20a%20URDF%20Model
+                       * http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/
+		       * http://gazebosim.org/tutorials?tut=inertia&cat=build_robot, and 
+                       * http://gazebosim.org/tutorials/?tut=ros_urdf
+                       * http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors  
+                -->
 		<inertial>
-			<mass value="10.0"/>
-			<origin xyz="0 0 0.177"/>
-			<inertia ixx="0.3338" ixy="0.0" ixz="0.0"
-				 iyy="0.4783" iyz="0.0"
-				 izz="0.3338"/>
+			<mass value="21.5"/> <!-- P3AT 18.6kg plus three batteries @ 2.4kg each  minus four wheels @ 1.4 kg ea and top plate @ 0.1 kg-->
+			<origin xyz="0 -0.1 0.177"/>
+			<inertia ixx="0.3338" ixy="0.0"     ixz="0.0"
+				              iyy="0.4783"  iyz="0.0"
+				                            izz="0.3338"/>
 		</inertial>
 		<visual name="base_visual">
 			<origin xyz="0 0 0.177" rpy="0 0 0"/>
@@ -207,7 +216,7 @@ name="pioneer3at">
 
 	<link name="p3at_front_${side}_wheel">
 		<inertial>
-			<mass value="0.5"/>	
+			<mass value="1.2"/> <!-- 1.4 kg - axle 0.1 kg - hub 0.1 kg -->
 			<origin xyz="0 0 0"/>
 			<inertia ixx="0.012411765597" ixy="0" ixz="0"
          iyy="0.015218160428" iyz="0" izz="0.011763977943"/>
@@ -311,10 +320,11 @@ name="pioneer3at">
 
 	<link name="p3at_back_${side}_wheel">
 		<inertial>
-			<mass value="0.5"/>	
+			<mass value="1.2"/>	
 			<origin xyz="0 0 0"/>
 			<inertia ixx="0.012411765597" ixy="0" ixz="0"
-         iyy="0.015218160428" iyz="0" izz="0.011763977943"/>
+                                                      iyy="0.015218160428" iyz="0" 
+                                                                           izz="0.011763977943"/>
       </inertial>
 	<visual name="base_visual">
 		<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -345,6 +355,9 @@ name="pioneer3at">
 		<child link="p3at_back_${side}_wheel"/>
 	</joint>
 	
+
+  <!-- see http://gazebosim.org/tutorials/?tut=ros_urdf -->
+
   <gazebo reference="p3at_back_${side}_wheel">
     <kp>1000000.0</kp> <!-- kp and kd for rubber -->
     <kd>100.0</kd>
@@ -384,9 +397,9 @@ name="pioneer3at">
     <wheelDiameter>0.215</wheelDiameter>
     <robotBaseFrame>base_link</robotBaseFrame>
     <torque>200</torque>
-    <commandTopic>sim_p3at/cmd_vel</commandTopic>
-    <odometryTopic>sim_p3at/odom</odometryTopic>
-    <odometryFrame>sim_p3at/odom</odometryFrame>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
     <broadcastTF>1</broadcastTF>
   </plugin>
 </gazebo>
