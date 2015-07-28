@@ -4,6 +4,24 @@
 
   <!-- TODO share pioneer lx mobile robot components with pioneer-lx urdf by
 including macro. -->
+  
+  <property name="deck_height" value="0.076" />
+  <property name="deck_width" value="0.437" />
+  <property name="deck_length" value="0.407" />
+  <property name="base_height" value="0.35" />
+  <property name="base_width" value="0.50" />
+  <property name="base_length" value="0.697" />
+  <property name="plinth_width" value="0.5" />
+  <property name="plinth_length" value="0.697" /> <!-- at bottom -->
+  <property name="plinth_height" value="0.99" /> 
+  <property name="plinth_bottom_mount_holes_z" value="0.584" />
+  <property name="plinth_middle_mount_holes_z" value="0.73" />
+  <property name="plinth_top_mount_holes_z" value="${plinth_height - 0.03}" />
+  <property name="arm_mount_offset_z" value="0.076" />   <!-- height of bottom of jaco arm above mounting hole when mounted using supplied 8020 hardware fixtrue -->
+  <property name="arm_mount_holes_z" value="${plinth_bottom_mount_holes_z}" /> <!-- change this if you move the arm mounting to one of the other sets of holes -->
+  <property name="arm_origin_z" value="${base_height + deck_height + arm_mount_holes_z + arm_mount_offset_z}" />
+  <property name="left_arm_origin" value="-0.02 0.184 ${arm_origin_z}" /> <!-- old z was 1.1384 -->
+  <property name="right_arm_origin" value="-0.02 -0.184 ${arm_origin_z}" />
 
 
   <link name="base_link">
@@ -23,7 +41,8 @@ including macro. -->
 
     <collision name="base_link_collision">
       <geometry name="base_link_collision_geom">
-        <box size="0.697 0.5 0.35" />
+        <box size="${base_length} ${base_width} ${base_height}" />
+        <!-- box size="0.697 0.5 0.35" / -->
       </geometry>
       <origin xyz="0 0 0.200" rpy="0 0 0" /> 
     </collision>
@@ -122,7 +141,7 @@ TODO separate out pioner lx wheels in visual model
   <link name="deck">
     <visual name="deck_visual">
       <geometry name="deck_visual_geom">
-        <box size="0.407 0.437 0.076" />
+        <box size="${deck_length} ${deck_width} ${deck_height}" />
       </geometry>
       <material name="lx_deck_mat">
         <color rgba="0 0 0 1" />
@@ -130,7 +149,8 @@ TODO separate out pioner lx wheels in visual model
     </visual>
     <collision name="deck_collision">
       <geometry name="deck_collision_geom">
-        <box size="0.407 0.437 0.076" />
+        <box size="${deck_length} ${deck_width} ${deck_height}" />
+        <!-- box size="0.407 0.437 0.076" / -->
       </geometry>
     </collision>
   </link>
@@ -198,13 +218,15 @@ TODO separate out pioner lx wheels in visual model
   <joint name="left_arm_attach" type="fixed">
     <child link="left_arm_mount" />
     <parent link="base_link" />
-    <origin xyz="-0.020 0.184 1.1384" rpy="0 0 1.5707" />
+    <origin xyz="${left_arm_origin}" rpy="0 0 1.5707" />
+    <!-- old z was 1.1384 -->
   </joint>
 
   <joint name="right_arm_attach" type="fixed">
     <child link="right_arm_mount" />
     <parent link="base_link" />
-    <origin xyz="-0.020 -0.184 1.1384" rpy="0 0 1.5707" />
+    <origin xyz="${right_arm_origin}" rpy="0 0 1.5707" />
+    <!-- old z was 1.1384 -->
   </joint>
 
  <!-- PTU 
