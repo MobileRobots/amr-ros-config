@@ -23,7 +23,8 @@ displayjs-%: %.urdf
 	roslaunch display-with-joint-state-gui.launch urdf:=$<
 
 %.urdf: %.urdf.xacro
-	mv $@ $@.bak; rosrun xacro xacro.py $< >$@ || mv $@.bak $@
+	-mv $@ $@.bak
+	rosrun xacro xacro.py $< >$@ || mv $@.bak $@
 
 #%.urdf: %.xacro
 #	mv $@ $@.bak; rosrun xacro xacro.py $< >$@ || mv $@.bak $@
