@@ -271,6 +271,22 @@ TODO separate out pioner lx wheels in visual model
     <origin xyz="0 0 0.0325" />
   </joint>
 
+
+  <!-- hack for depthimage_to_laserscan (todo: configure depthimage_to_laserscan to use "kinect" as frame -->
+  <link name="camera_depth_frame"> 
+    <origin xyz="0 0 0" />
+    <inertial>
+      <mass value="0.0" /> 
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+    </inertial>
+  </link>
+
+  <joint name="camera_depth_frame_joint" type="fixed">
+    <parent link="kinect" />
+    <child link="camera_depth_frame" />
+    <origin xyz="0 0 0" />
+  </joint>
+
 </robot>
   
 

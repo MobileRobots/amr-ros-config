@@ -2,7 +2,15 @@
 default: check
 
 #xacro_files=$(shell find . -name \*.urdf.xacro)
-xacro_files=pioneer-lx.urdf.xacro pioneer3dx.urdf.xacro pioneer3at.urdf.xacro powerbot.urdf.xacro
+xacro_files=\
+  pioneer-lx.urdf.xacro \
+  pioneer3dx.urdf.xacro \
+  pioneer3at.urdf.xacro \
+  powerbot.urdf.xacro \
+  terabot-arm.urdf.xacro \
+  seekurjr.urdf.xacro \
+  pioneer3dx-lms200.urdf.xacro
+
 urdf_files=$(patsubst %.urdf.xacro,%.urdf,$(xacro_files))
 sdf_files=$(patsubst %.urdf,../../gazebo/%.sdf,$(urdf_files))
 
@@ -24,7 +32,7 @@ displayjs-%: %.urdf
 
 %.urdf: %.urdf.xacro
 	-mv $@ $@.bak
-	rosrun xacro xacro.py $< >$@ || mv $@.bak $@
+	rosrun xacro xacro.py $< >$@ || mv $@.bak $@ || rm @0
 
 #%.urdf: %.xacro
 #	mv $@ $@.bak; rosrun xacro xacro.py $< >$@ || mv $@.bak $@

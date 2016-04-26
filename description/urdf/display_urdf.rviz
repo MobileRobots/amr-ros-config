@@ -9,8 +9,13 @@ Panels:
         - /RobotModel1
         - /RobotModel1/Links1
         - /TF1
+        - /LaserScan1
+        - /kinect1 depth rect sd image1
+        - /kinect1 depth rect sd image1/Status1
+        - /PointCloud1
+        - /LaserScan2
       Splitter Ratio: 0.5625
-    Tree Height: 430
+    Tree Height: 325
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -26,10 +31,10 @@ Panels:
     Name: Views
     Splitter Ratio: 0.5
   - Class: rviz/Time
-    Experimental: false
+    Experimental: true
     Name: Time
-    SyncMode: 0
-    SyncSource: ""
+    SyncMode: 2
+    SyncSource: PointCloud
   - Class: rviz/Tool Properties
     Expanded: ~
     Name: Tool Properties
