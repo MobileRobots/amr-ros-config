@@ -3,6 +3,10 @@ amr-ros-config
 
 URDF, launch files, and other ROS configuration for AMR robots.
 
+This directory should be in your ROS package path. Either append it 
+to the ROS_PACKAGE_PATH environment variable[1], or place it in the
+"src" subdirectory of your catkin workspace[2].
+
 URDF
 ----
 
@@ -80,5 +84,7 @@ rosaria with MobileSim or a real robot.
 
 
 
+[1]: http://wiki.ros.org/ROS/EnvironmentVariables#ROS_PACKAGE_PATH
+[2]: http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 
 
