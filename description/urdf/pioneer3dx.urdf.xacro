@@ -358,6 +358,7 @@
     <robotBaseFrame>base_link</robotBaseFrame>
     <odometryTopic>odom</odometryTopic>
     <odometryFrame>odom</odometryFrame>
+    <legacyMode>true</legacyMode>
 	</plugin>
 
   <!-- TODO include P3D (ground truth) plugin -->

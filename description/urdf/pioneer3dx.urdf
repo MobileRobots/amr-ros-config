@@ -321,6 +321,7 @@
       <robotBaseFrame>base_link</robotBaseFrame>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
+      <legacyMode>true</legacyMode>
     </plugin>
     <!-- TODO include P3D (ground truth) plugin -->
     <!-- XXX old urdf included a gazebo_ros_controller_manager plugin with a 1 second update rate -->
