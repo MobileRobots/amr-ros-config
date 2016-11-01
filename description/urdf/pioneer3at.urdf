@@ -4,6 +4,24 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="pioneer3at" xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller" xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor" xmlns:xacro="http://ros.org/wiki/xacro">
+  <material name="SonarYellow">
+    <color rgba="0.715 0.583 0.210 1.0"/>
+  </material>
+  <material name="WheelBlack">
+    <color rgba="0.117 0.117 0.117 1.0"/>
+  </material>
+  <material name="HubcapYellow">
+    <color rgba="1.0 0.811 0.151 1.0"/>
+  </material>
+  <material name="ChassisRed">
+    <color rgba="0.8 0.0 0.0 1.0"/>
+  </material>
+  <material name="TopBlack">
+    <color rgba="0.038 0.038 0.038 1.0"/>
+  </material>
+  <material name="ChassisGrey">
+    <color rgba="0.47 0.47 0.47 1.0"/>
+  </material>
   <!-- Chassis -->
   <link name="base_link">
     <!--  For pointers on inertial and gazebo-related parameters see
@@ -36,8 +54,45 @@
     </collision>
   </link>
   <gazebo reference="base_link">
-    <material value="Gazebo/Red"/>
+    <material>
+      <!--
+      <script>
+         <uri>/usr/share/gazebo-7/media/materials/scripts/gazebo.material</uri>
+          <name>Gazebo/Green</name>
+      </script>
+-->
+      <ambient>1 0 0 0</ambient>
+      <diffuse>1 0 0 0</diffuse>
+      <specular>0 0 0 1</specular>
+      <emissive>0 0 0 1</emissive>
+    </material>
   </gazebo>
+  <joint name="imu_joint" type="fixed">
+    <axis xyz="1 0 0"/>
+    <!-- 0 1 0 -->
+    <origin xyz="0 0 0.19"/>
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+  </joint>
+  <link name="imu_link">
+    <inertial>
+      <mass value="0.001"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size=".001 .001 .001"/>
+      </geometry>
+    </collision>
+  </link>
   <!-- Top -->
   <link name="top_plate">
     <inertial>
@@ -130,6 +185,7 @@
     <parent link="base_link"/>
     <child link="back_sonar"/>
   </joint>
+  <!-- Front Axles + Wheels + Hubcaps -->
   <link name="p3at_front_left_axle">
     <inertial>
       <mass value="0.1"/>
@@ -226,6 +282,7 @@
     <parent link="p3at_front_left_hub"/>
     <child link="p3at_front_left_wheel"/>
   </joint>
+  <!-- Back Axles + Wheels + Hubcaps -->
   <link name="p3at_back_left_axle">
     <inertial>
       <mass value="0.1"/>
@@ -317,6 +374,7 @@
     <parent link="p3at_back_left_hub"/>
     <child link="p3at_back_left_wheel"/>
   </joint>
+  <!-- see http://gazebosim.org/tutorials/?tut=ros_urdf -->
   <gazebo reference="p3at_back_left_wheel">
     <kp>1000000.0</kp>
     <!-- kp and kd for rubber -->
@@ -351,6 +409,7 @@
     <minDepth>0.00</minDepth>
     <material value="Gazebo/Black"/>
   </gazebo>
+  <!-- Front Axles + Wheels + Hubcaps -->
   <link name="p3at_front_right_axle">
     <inertial>
       <mass value="0.1"/>
@@ -447,6 +506,7 @@
     <parent link="p3at_front_right_hub"/>
     <child link="p3at_front_right_wheel"/>
   </joint>
+  <!-- Back Axles + Wheels + Hubcaps -->
   <link name="p3at_back_right_axle">
     <inertial>
       <mass value="0.1"/>
@@ -538,6 +598,7 @@
     <parent link="p3at_back_right_hub"/>
     <child link="p3at_back_right_wheel"/>
   </joint>
+  <!-- see http://gazebosim.org/tutorials/?tut=ros_urdf -->
   <gazebo reference="p3at_back_right_wheel">
     <kp>1000000.0</kp>
     <!-- kp and kd for rubber -->
@@ -573,6 +634,14 @@
     <material value="Gazebo/Black"/>
   </gazebo>
   <gazebo>
+    <plugin filename="libgazebo_ros_imu.so" name="imu_plugin">
+      <alwaysOn>true</alwaysOn>
+      <bodyName>imu_link</bodyName>
+      <topicName>imu_data</topicName>
+      <serviceName>imu_service</serviceName>
+      <gaussianNoise>0.0</gaussianNoise>
+      <updateRate>30.0</updateRate>
+    </plugin>
     <plugin filename="libgazebo_ros_skid_steer_drive.so" name="skid_steer_drive_controller">
       <updateRate>100.0</updateRate>
       <robotNamespace>sim_p3at</robotNamespace>
@@ -589,6 +658,12 @@
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <broadcastTF>1</broadcastTF>
+    </plugin>
+    <plugin filename="libgazebo_ros_p3d.so" name="ground_truth">
+      <frameName>map</frameName>
+      <bodyName>base_link</bodyName>
+      <topicName>odom_gt</topicName>
+      <updateRate>30.0</updateRate>
     </plugin>
   </gazebo>
 </robot>

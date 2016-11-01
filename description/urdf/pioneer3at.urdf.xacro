@@ -5,6 +5,7 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro"
 name="pioneer3at">
+<xacro:include filename="$(find amr_robots_description)/urdf/materials.xacro" />
 
 <!-- Chassis -->
 	<link name="base_link">
@@ -41,8 +42,47 @@ name="pioneer3at">
 		</collision>
 	</link>
 	<gazebo reference="base_link">
-		<material value="Gazebo/Red"/>
+      <material>
+         <!--
+      <script>
+         <uri>/usr/share/gazebo-7/media/materials/scripts/gazebo.material</uri>
+          <name>Gazebo/Green</name>
+      </script>
+-->   
+          <ambient>1 0 0 0</ambient>
+          <diffuse>1 0 0 0</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1</emissive>
+
+</material>
 	</gazebo>
+  <joint name="imu_joint" type="fixed">
+    <axis xyz="1 0 0"/> <!-- 0 1 0 -->
+    <origin xyz="0 0 0.19"/>
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+  </joint>
+
+
+<link name="imu_link">
+  <inertial>
+    <mass value="0.001"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <box size="0.001 0.001 0.001"/>
+    </geometry>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <box size=".001 .001 .001"/>
+    </geometry>
+  </collision>
+</link>
 
 <!-- Top -->
 	<link name="top_plate">
@@ -392,8 +432,15 @@ name="pioneer3at">
 
 
 <xacro:macro name="p3at_gazebo_ext">
-
 <gazebo>
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+        <alwaysOn>true</alwaysOn>       
+        <bodyName>imu_link</bodyName>
+        <topicName>imu_data</topicName>
+        <serviceName>imu_service</serviceName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <updateRate>30.0</updateRate> 
+    </plugin>
   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
     <updateRate>100.0</updateRate>
     <robotNamespace>sim_p3at</robotNamespace>
@@ -410,6 +457,12 @@ name="pioneer3at">
     <odometryTopic>odom</odometryTopic>
     <odometryFrame>odom</odometryFrame>
     <broadcastTF>1</broadcastTF>
+  </plugin>
+  <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+    <frameName>map</frameName>
+    <bodyName>base_link</bodyName>
+    <topicName>odom_gt</topicName>
+    <updateRate>30.0</updateRate>
   </plugin>
 </gazebo>
 

@@ -1,9 +1,9 @@
-<sdf version='1.5'>
+<sdf version='1.6'>
   <model name='pioneer3dx'>
     <link name='base_link'>
-      <pose>0 0 0 0 -0 0</pose>
+      <pose frame=''>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>-0.000133842 0 0.000672573 0 -0 0</pose>
+        <pose frame=''>-0.000134 0 0.000673 0 -0 0</pose>
         <mass>3.5101</mass>
         <inertia>
           <ixx>4.00055</ixx>
@@ -15,49 +15,73 @@
         </inertia>
       </inertial>
       <collision name='base_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
             <size>0.01 0.01 0.01</size>
           </box>
         </geometry>
       </collision>
-      <collision name='base_link_collision_base_link_1'>
-        <pose>0.109 0 0.209 0 -0 0</pose>
+      <collision name='base_link_fixed_joint_lump__back_sonar_collision_1'>
+        <pose frame=''>0.109 0 0.209 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0 0 0</size>
+            <size>0.1 0.1 0.1</size>
           </box>
         </geometry>
       </collision>
-      <collision name='base_link_collision_base_link_2'>
-        <pose>-0.198 0 0.208 0 -0 0</pose>
+      <collision name='base_link_fixed_joint_lump__front_sonar_collision_2'>
+        <pose frame=''>-0.198 0 0.208 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0 0 0</size>
+            <size>0.1 0.1 0.1</size>
           </box>
         </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
       </collision>
-      <collision name='base_link_collision_base_link_3'>
-        <pose>0 0.15 0.08 -1.5708 0 0</pose>
+      <collision name='base_link_fixed_joint_lump__left_hub_collision_3'>
+        <pose frame=''>0 0.15 0.08 -1.5708 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.01</length>
             <radius>0.09</radius>
           </cylinder>
         </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
       </collision>
-      <collision name='base_link_collision_base_link_4'>
-        <pose>0 -0.15 0.08 -1.5708 0 0</pose>
+      <collision name='base_link_fixed_joint_lump__right_hub_collision_4'>
+        <pose frame=''>0 -0.15 0.08 -1.5708 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.01</length>
             <radius>0.09</radius>
           </cylinder>
         </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
       </collision>
       <visual name='base_link_visual'>
-        <pose>-0.045 0 0.148 0 -0 0</pose>
+        <pose frame=''>-0.045 0 0.148 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -65,8 +89,8 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name='base_link_visual_base_link_1'>
-        <pose>0.109 0 0.209 0 -0 0</pose>
+      <visual name='base_link_fixed_joint_lump__base_visual_visual_1'>
+        <pose frame=''>0.109 0 0.209 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -74,8 +98,8 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name='base_link_visual_base_link_2'>
-        <pose>-0.198 0 0.208 0 -0 0</pose>
+      <visual name='base_link_fixed_joint_lump__pioneer_geom_visual_2'>
+        <pose frame=''>-0.198 0 0.208 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -83,8 +107,8 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name='base_link_visual_base_link_3'>
-        <pose>-0.045 0 0.234 0 -0 0</pose>
+      <visual name='base_link_fixed_joint_lump__pioneer_geom_visual_3'>
+        <pose frame=''>-0.045 0 0.234 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -92,17 +116,23 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name='base_link_visual_base_link_4'>
-        <pose>0 0.15 0.08 0 -0 0</pose>
+      <visual name='base_link_fixed_joint_lump__left_hub_visual_4'>
+        <pose frame=''>0 0.15 0.08 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
             <uri>model://amr_robots_description/meshes/p3dx_meshes/left_hubcap.stl</uri>
           </mesh>
         </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Yellow</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
       </visual>
-      <visual name='base_link_visual_base_link_5'>
-        <pose>0 0.15 0.08 0 -0 0</pose>
+      <visual name='base_link_fixed_joint_lump__left_wheel_visual_5'>
+        <pose frame=''>0 0.15 0.08 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -110,17 +140,23 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name='base_link_visual_base_link_6'>
-        <pose>0 -0.15 0.08 0 -0 0</pose>
+      <visual name='base_link_fixed_joint_lump__right_hub_visual_6'>
+        <pose frame=''>0 -0.15 0.08 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
             <uri>model://amr_robots_description/meshes/p3dx_meshes/right_hubcap.stl</uri>
           </mesh>
         </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Yellow</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
       </visual>
-      <visual name='base_link_visual_base_link_7'>
-        <pose>0 -0.15 0.08 0 -0 0</pose>
+      <visual name='base_link_fixed_joint_lump__right_wheel_visual_7'>
+        <pose frame=''>0 -0.15 0.08 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -136,9 +172,9 @@
       <self_collide>0</self_collide>
     </link>
     <link name='caster_swivel'>
-      <pose>-0.185 0 0.055 0 -0 0</pose>
+      <pose frame=''>-0.185 0 0.055 0 -0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>0.01</ixx>
@@ -150,10 +186,10 @@
         </inertia>
       </inertial>
       <collision name='caster_swivel_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0 0 0</size>
+            <size>0.1 0.1 0.1</size>
           </box>
         </geometry>
         <surface>
@@ -165,20 +201,14 @@
           </friction>
         </surface>
       </collision>
-      <visual name='caster_swivel_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+      <visual name='caster_swivel_fixed_joint_lump__pioneer_geom_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
             <uri>model://amr_robots_description/meshes/p3dx_meshes/caster_swivel.stl</uri>
           </mesh>
         </geometry>
-        <material>
-          <script>
-            <name>Gazebo/Grey</name>
-            <uri>__default__</uri>
-          </script>
-        </material>
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
@@ -201,9 +231,9 @@
       </axis>
     </joint>
     <link name='caster_wheel'>
-      <pose>-0.211 0 0.039 0 -0 0</pose>
+      <pose frame=''>-0.211 0 0.039 0 -0 0</pose>
       <inertial>
-        <pose>-0.000318182 0 -9.09091e-05 0 -0 0</pose>
+        <pose frame=''>-0.000318 0 -9.1e-05 0 -0 0</pose>
         <mass>0.11</mass>
         <inertia>
           <ixx>0.0248235</ixx>
@@ -215,7 +245,7 @@
         </inertia>
       </inertial>
       <collision name='caster_wheel_collision'>
-        <pose>0 0 0 -1.5708 0 0</pose>
+        <pose frame=''>0 0 0 -1.5708 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.01</length>
@@ -223,16 +253,24 @@
           </cylinder>
         </geometry>
       </collision>
-      <collision name='caster_wheel_collision_caster_wheel_1'>
-        <pose>-0.0035 0 -0.001 0 -0 0</pose>
+      <collision name='caster_wheel_fixed_joint_lump__caster_hubcap_collision_1'>
+        <pose frame=''>-0.0035 0 -0.001 0 -0 0</pose>
         <geometry>
           <box>
             <size>0.05 0.05 0.05</size>
           </box>
         </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
       </collision>
-      <visual name='caster_wheel_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+      <visual name='caster_wheel_fixed_joint_lump__pioneer_geom_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -240,8 +278,8 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name='caster_wheel_visual_caster_wheel_1'>
-        <pose>-0.0035 0 -0.001 0 -0 0</pose>
+      <visual name='caster_wheel_fixed_joint_lump__pioneer_geom_visual_1'>
+        <pose frame=''>-0.0035 0 -0.001 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -282,6 +320,7 @@
       <robotBaseFrame>base_link</robotBaseFrame>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
+      <legacyMode>true</legacyMode>
     </plugin>
   </model>
 </sdf>
