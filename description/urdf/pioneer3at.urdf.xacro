@@ -62,6 +62,20 @@ name="pioneer3at">
     <parent link="base_link"/>
     <child link="imu_link"/>
   </joint>
+  <joint name="basefootprint_joint" type="fixed">
+    <axis xyz="1 0 0"/> <!-- 0 1 0 -->
+    <origin xyz="0 0 0.19"/>
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+  </joint>
+<link name="base_footprint">
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <box size="0.001 0.001 0.001"/>
+    </geometry>
+  </visual>
+</link>
 
 
 <link name="imu_link">
@@ -438,7 +452,7 @@ name="pioneer3at">
         <bodyName>imu_link</bodyName>
         <topicName>imu_data</topicName>
         <serviceName>imu_service</serviceName>
-        <gaussianNoise>0.0</gaussianNoise>
+        <gaussianNoise>10.0</gaussianNoise>
         <updateRate>30.0</updateRate> 
     </plugin>
   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
@@ -462,6 +476,7 @@ name="pioneer3at">
     <frameName>map</frameName>
     <bodyName>base_link</bodyName>
     <topicName>odom_gt</topicName>
+    <gaussianNoise>3.0</gaussianNoise>
     <updateRate>30.0</updateRate>
   </plugin>
 </gazebo>
