@@ -4,8 +4,8 @@ amr-ros-config
 URDF, launch files, and other ROS configuration for AMR robots.
 
 This directory should be in your ROS package path. Either append it 
-to the ROS_PACKAGE_PATH environment variable[1], or place it in the
-"src" subdirectory of your catkin workspace[2].
+to the `ROS_PACKAGE_PATH` environment variable[1], or place it in the
+`src` subdirectory of your catkin workspace[2].
 
 URDF
 ----
@@ -22,6 +22,26 @@ in Gazebo (see Gazebo below).
 This repository has been started by MobileRobots as a single easy to find and maintain location,
 but is also a collaborative effort among the user community, please submit any fixes and improvements using the
 issue tracker or pull request.
+
+Some URDF files use properties to specify key positions or dimensions. 
+Open the URDF-Xacro file in a text editor to see properties and comments
+located near the top of the file.
+If your robot has additional accessory devices added, or parts moved or 
+mounted other than default locations, you can copy and modify the
+base robot URDF-Xacro file into a custom URDF-Xacro model file
+for your robot, changing property values as neccesary. 
+
+(In the future, examples will be created that show how to use the Xacro "include"
+element to include default robot base models then add to them.)
+
+If you would like any aspects of the robot base URDF models parameterized
+or otherwise changed, please submit a request using the issue tracker,
+or make the change in a fork of the Git repository and submit a pull request
+for review and discussion.
+
+For documentation on URDF and Xacro file formats, see:
+* <http://wiki.ros.org/xacro>
+* <http://wiki.ros.org/urdf/Tutorials>
 
 Launch files
 ------------

@@ -114,4 +114,3 @@ to plain-xml urdf and also runs `check_urdf` on them:
     cd src/amr-ros-config/description/urdf
     make
 
-
