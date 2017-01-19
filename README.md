@@ -19,6 +19,8 @@ original `p2os` package, and others.  Other URDF models have been added
 by Adept MobileRobots.  Some URDF files might be useable as models
 in Gazebo (see Gazebo below).
 
+For more details on using these models and the `amr_robots_description` package, see [description/README.md](description/README.md)
+
 This repository has been started by MobileRobots as a single easy to find and maintain location,
 but is also a collaborative effort among the user community, please submit any fixes and improvements using the
 issue tracker or pull request.
@@ -95,8 +97,7 @@ directory. This directory contains a ROS package named
 `amr_robots_gazebo` which can be used to reference files contained
 within it from other launch files, etc.  
 
-See gazebo/README.md for more information about using the 
-Gazebo simulator.
+See [gazebo/README.md](gazebo/README.md) for more information about using this configuration with the Gazebo simulator.
 
 See <http://wiki.ros.org/Robots/Pioneer> for more discussion
 about the differences between using Gazebo and other ROS simulators , or 
