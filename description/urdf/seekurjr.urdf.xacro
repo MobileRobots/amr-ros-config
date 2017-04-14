@@ -85,7 +85,7 @@ name="skj">
       <mu1>1.0</mu1> <!-- was 10.0 -->
       <mu2>1.0</mu2>
       <!-- todo how to get these ODE params in: slip1, slip2 -->
-      <fdir1>0 1 0</fdir1> <!-- is this correct? -->
+      <!-- fdir1 0 1 0 /fdir1 --> <!-- see http://github.com/MobileRobots/amr-ros-config/issues/6 -->
       <maxVel>1.0</maxVel>
       <minDepth>0.00</minDepth>
       <material value="Gazebo/Black" />

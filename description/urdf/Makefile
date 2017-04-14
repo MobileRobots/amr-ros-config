@@ -8,8 +8,9 @@ xacro_files=\
   pioneer3at.urdf.xacro \
   powerbot.urdf.xacro \
   terabot-arm.urdf.xacro \
-  seekurjr.urdf.xacro \
-  pioneer3dx-lms200.urdf.xacro
+  seekurjr.urdf.xacro 
+#\
+#  pioneer3dx-lms200.urdf.xacro
 
 urdf_files=$(patsubst %.urdf.xacro,%.urdf,$(xacro_files))
 sdf_files=$(patsubst %.urdf,../../gazebo/%.sdf,$(urdf_files))

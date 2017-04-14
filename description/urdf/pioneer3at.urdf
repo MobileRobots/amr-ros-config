@@ -130,6 +130,7 @@
     <parent link="base_link"/>
     <child link="back_sonar"/>
   </joint>
+  <!-- Front Axles + Wheels + Hubcaps -->
   <link name="p3at_front_left_axle">
     <inertial>
       <mass value="0.1"/>
@@ -226,6 +227,7 @@
     <parent link="p3at_front_left_hub"/>
     <child link="p3at_front_left_wheel"/>
   </joint>
+  <!-- Back Axles + Wheels + Hubcaps -->
   <link name="p3at_back_left_axle">
     <inertial>
       <mass value="0.1"/>
@@ -317,6 +319,7 @@
     <parent link="p3at_back_left_hub"/>
     <child link="p3at_back_left_wheel"/>
   </joint>
+  <!-- see http://gazebosim.org/tutorials/?tut=ros_urdf -->
   <gazebo reference="p3at_back_left_wheel">
     <kp>1000000.0</kp>
     <!-- kp and kd for rubber -->
@@ -328,8 +331,8 @@
         slip1 0.5 /slip1 
          slip2 0 /slip2 
       -->
-    <fdir1>0 1 0</fdir1>
-    <!-- is this correct? -->
+    <!-- fdir1 0 1 0 /fdir1 -->
+    <!-- see http://github.com/MobileRobots/amr-ros-config/issues/6 -->
     <maxVel>1.0</maxVel>
     <minDepth>0.00</minDepth>
     <material value="Gazebo/Black"/>
@@ -345,12 +348,13 @@
         slip1 0.5 /slip1 
          slip2 0 /slip2 
       -->
-    <fdir1>0 1 0</fdir1>
-    <!-- is this correct? -->
+    <!-- fdir1 0 1 0 /fdir1 -->
+    <!-- see http://github.com/MobileRobots/amr-ros-config/issues/6 -->
     <maxVel>1.0</maxVel>
     <minDepth>0.00</minDepth>
     <material value="Gazebo/Black"/>
   </gazebo>
+  <!-- Front Axles + Wheels + Hubcaps -->
   <link name="p3at_front_right_axle">
     <inertial>
       <mass value="0.1"/>
@@ -447,6 +451,7 @@
     <parent link="p3at_front_right_hub"/>
     <child link="p3at_front_right_wheel"/>
   </joint>
+  <!-- Back Axles + Wheels + Hubcaps -->
   <link name="p3at_back_right_axle">
     <inertial>
       <mass value="0.1"/>
@@ -538,6 +543,7 @@
     <parent link="p3at_back_right_hub"/>
     <child link="p3at_back_right_wheel"/>
   </joint>
+  <!-- see http://gazebosim.org/tutorials/?tut=ros_urdf -->
   <gazebo reference="p3at_back_right_wheel">
     <kp>1000000.0</kp>
     <!-- kp and kd for rubber -->
@@ -549,8 +555,8 @@
         slip1 0.5 /slip1 
          slip2 0 /slip2 
       -->
-    <fdir1>0 1 0</fdir1>
-    <!-- is this correct? -->
+    <!-- fdir1 0 1 0 /fdir1 -->
+    <!-- see http://github.com/MobileRobots/amr-ros-config/issues/6 -->
     <maxVel>1.0</maxVel>
     <minDepth>0.00</minDepth>
     <material value="Gazebo/Black"/>
@@ -566,8 +572,8 @@
         slip1 0.5 /slip1 
          slip2 0 /slip2 
       -->
-    <fdir1>0 1 0</fdir1>
-    <!-- is this correct? -->
+    <!-- fdir1 0 1 0 /fdir1 -->
+    <!-- see http://github.com/MobileRobots/amr-ros-config/issues/6 -->
     <maxVel>1.0</maxVel>
     <minDepth>0.00</minDepth>
     <material value="Gazebo/Black"/>
