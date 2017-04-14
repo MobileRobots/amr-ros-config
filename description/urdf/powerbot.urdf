@@ -27,7 +27,7 @@ right dimensions.
       <origin xyz="0.45 0.34 0.24"/>
       <inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423" iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726"/>
     </inertial>
-    <visual name="base_visual">
+    <visual>
       <origin rpy="0 0 0" xyz="-0.1 0 0.24"/>
       <geometry name="base_visual_geom">
         <box size="0.9 0.68 0.48"/>

@@ -15,7 +15,7 @@
 				 iyy="0.4783" iyz="0.0"
 				 izz="0.3338"/>
 		</inertial>
-		<visual name="base_visual">
+		<visual>
 			<origin xyz="0 0 0.177" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
 				<mesh filename="package://amr_robots_description/meshes/p3at_meshes/chassis.stl"/>
@@ -44,7 +44,7 @@
 				 iyy="1.0" iyz="0.0"
  				izz="1.0"/>
 		</inertial>
-		<visual name="base_visual">
+		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
 				<mesh filename="package://amr_robots_description/meshes/p3at_meshes/top.stl"/>
@@ -53,12 +53,6 @@
 					<color rgba="0.038 0.038 0.038 1.0"/>
 			</material>
 		</visual>
-		<collision>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<geometry>
-				<box size="0 0 0"/>
-			</geometry>
-		</collision>
 	</link>
 	<gazebo reference="top_plate">
 		<material value="Gazebo/Black"/>
@@ -77,7 +71,7 @@
 			<inertia ixx="1.0" ixy="0.0" ixz="0.0"
 				 iyy="1.0" iyz="0.0" izz="1.0"/>
 		</inertial>
-		<visual name="base_visual">
+		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
 				<mesh filename="package://amr_robots_description/meshes/p3at_meshes/front_sonar.stl"/>
@@ -86,12 +80,6 @@
 				<color rgba="0.715 0.583 0.210 1.0"/>
 			</material>
 		</visual>
-		<collision>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<geometry>
-				<box size="0 0 0"/>
-			</geometry>
-		</collision>
 	</link>
 	<gazebo reference="front_sonar">
 		<material value="Gazebo/Yellow"/>
@@ -110,7 +98,7 @@
 			<inertia ixx="1.0" ixy="0.0" ixz="0.0"
 				 iyy="1.0" iyz="0.0" izz="1.0"/>
 		</inertial>
-		<visual name="base_visual">
+		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
 				<mesh filename="package://amr_robots_description/meshes/p3at_meshes/back_sonar.stl"/>
@@ -119,12 +107,6 @@
 				<color rgba="0.715 0.583 0.210 1.0"/>
 			</material>
 		</visual>
-		<collision>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<geometry>
-				<box size="0 0 0"/>
-			</geometry>
-		</collision>
 	</link>
 	<gazebo reference="back_sonar">
 		<material value="Gazebo/Yellow"/>
@@ -145,7 +127,7 @@
 			<inertia ixx="1.0" ixy="0.0" ixz="0.0"
 				 iyy="1.0" iyz="0.0" izz="1.0"/>
   	 	</inertial>
-	<visual name="base_visual">
+	<visual>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
 			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/axle.stl"/>
@@ -154,12 +136,6 @@
 			<color rgba="0.5 0.5 0.5 1"/>
 		</material>
 	</visual>
-	<collision>
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<geometry>
-			<box size="0 0 0"/>
-		</geometry>
-	</collision>
 	</link>
 	<gazebo reference="p3at_front_${suffix}_axle">
 		<material value="Gazebo/Grey"/>
@@ -178,7 +154,7 @@
 			<inertia ixx="1.0" ixy="0.0" ixz="0.0"
 				 iyy="1.0" iyz="0.0" izz="1.0"/>
   	 	</inertial>
-	<visual name="base_visual">
+	<visual>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
 			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/${suffix}_hubcap.stl"/>
@@ -187,12 +163,6 @@
 			<color rgba="1.0 0.811 0.151 1.0"/>
 		</material>
 	</visual>
-	<collision>
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<geometry>
-			<box size="0 0 0"/>
-		</geometry>
-	</collision>
 	</link>
 	<gazebo reference="p3at_front_${suffix}_hub">
 		<material value="Gazebo/Yellow"/>
@@ -211,7 +181,7 @@
 			<inertia ixx="0.012411765597" ixy="0" ixz="0"
          iyy="0.015218160428" iyz="0" izz="0.011763977943"/>
       </inertial>
-	<visual name="base_visual">
+	<visual>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
 			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/wheel.stl"/>
@@ -250,7 +220,7 @@
 			<inertia ixx="1.0" ixy="0.0" ixz="0.0"
 				 iyy="1.0" iyz="0.0" izz="1.0"/>
   	 	</inertial>
-	<visual name="base_visual">
+	<visual>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
 			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/axle.stl"/>
@@ -284,7 +254,7 @@
 			<inertia ixx="1.0" ixy="0.0" ixz="0.0"
 				 iyy="1.0" iyz="0.0" izz="1.0"/>
   	 	</inertial>
-	<visual name="base_visual">
+	<visual>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
 			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/${suffix}_hubcap.stl"/>
@@ -315,7 +285,7 @@
 			<inertia ixx="0.012411765597" ixy="0" ixz="0"
          iyy="0.015218160428" iyz="0" izz="0.011763977943"/>
       </inertial>
-	<visual name="base_visual">
+	<visual>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
 			<mesh filename="package://amr_robots_description/meshes/p3at_meshes/wheel.stl"/>
