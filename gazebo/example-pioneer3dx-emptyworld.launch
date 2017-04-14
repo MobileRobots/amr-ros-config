@@ -3,9 +3,9 @@
   <env name="GAZEBO_MODEL_PATH" value="$GAZEBO_MODEL_PATH:$(find amr_robots_gazebo)/models" />
   <env name="GAZEBO_RESOURCE_PATH" value="$GAZEBO_RESOURCE_PATH:$(find amr_robots_gazebo)/models" />
 
-  <arg name="world" default="worlds/empty.world" />
+  <arg name="world_name" default="worlds/empty.world" />
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-	<arg name="world" value="$(arg world)" />
+	<arg name="world_name" value="$(arg world_name)" />
   </include>
 
   <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3dx.urdf" />

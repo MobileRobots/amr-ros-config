@@ -33,7 +33,7 @@ displayjs-%: %.urdf
 
 %.urdf: %.urdf.xacro
 	-mv $@ $@.bak
-	rosrun xacro xacro.py $< >$@ || mv $@.bak $@ || rm @0
+	rosrun xacro xacro --inorder $< >$@ || mv $@.bak $@ || rm @0
 
 #%.urdf: %.xacro
 #	mv $@ $@.bak; rosrun xacro xacro.py $< >$@ || mv $@.bak $@
