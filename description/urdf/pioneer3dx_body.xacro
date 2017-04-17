@@ -20,7 +20,7 @@
 				 izz="0.3338"/>
 		</inertial>
 		<!-- The base visual is fine. Just the inertial is questionable.-->
-		<visual name="pioneer_geom">
+		<visual>
 			<origin xyz="-0.045 0 0.148" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
 				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/chassis.stl"/>
@@ -48,7 +48,7 @@
 				 iyy="1" iyz="0"
  				izz="1"/>
 		</inertial>
-		<visual name="pioneer_geom">
+		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
 				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/top.stl"/>
@@ -84,7 +84,7 @@
 			<inertia ixx="0.01" ixy="0" ixz="0"
 				 iyy="0.01" iyz="0" izz="0.01"/>
   	 	</inertial>
-	<visual name="pioneer_geom">
+	<visual>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
 			<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/swivel.stl"/>
@@ -93,12 +93,6 @@
 			<color rgba="0.5 0.5 0.5 1"/>
 		</material>
 	</visual>
-	<collision>
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<geometry>
-			<box size="0 0 0"/>
-		</geometry>
-	</collision>
 	</link>
 	<gazebo reference="swivel">
 		<material value="Gazebo/Grey"/>
@@ -112,7 +106,7 @@
 			<inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
 				 iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
   	 	</inertial>
-	<visual name="pioneer_geom">
+	<visual>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
 			<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/center_hubcap.stl"/>
@@ -149,7 +143,7 @@
 			<inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
 				 iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
   	 	</inertial>
-	<visual name="pioneer_geom">
+	<visual>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<geometry name="pioneer_geom">
 			<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/center_wheel.stl"/>
@@ -282,7 +276,7 @@
 			<inertia ixx="1" ixy="0" ixz="0"
 				 iyy="1" iyz="0" izz="1"/>
 		</inertial>
-		<visual name="pioneer_geom">
+		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
 				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/front_sonar.stl"/>
@@ -291,12 +285,6 @@
 				<color rgba="0.715 0.583 0.210 1.0"/>
 			</material>
 		</visual>
-		<collision>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<geometry>
-				<box size="0 0 0"/>
-			</geometry>
-		</collision>
 	</link>
 
 	<gazebo reference="front_sonar">
@@ -316,7 +304,7 @@
 			<inertia ixx="1" ixy="0" ixz="0"
 				 iyy="1" iyz="0" izz="1"/>
 		</inertial>
-		<visual name="back_sonar_vis">
+		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
 				<mesh filename="package://amr_robots_description/meshes/p3dx_meshes/back_sonar.stl"/>

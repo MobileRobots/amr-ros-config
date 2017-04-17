@@ -35,7 +35,7 @@
       <origin xyz="0 0 0"/>
       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
     </inertial>
-    <visual name="pioneer_geom">
+    <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
         <mesh filename="package://amr_robots_description/meshes/p3dx_meshes/top.stl"/>
@@ -61,7 +61,7 @@
       <origin xyz="0 0 0"/>
       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
     </inertial>
-    <visual name="pioneer_geom">
+    <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
         <mesh filename="package://amr_robots_description/meshes/p3dx_meshes/front_sonar.stl"/>
@@ -70,12 +70,6 @@
         <color rgba="0.715 0.583 0.210 1.0"/>
       </material>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size="0 0 0"/>
-      </geometry>
-    </collision>
   </link>
   <gazebo reference="front_sonar">
     <material value="Gazebo/Yellow"/>
@@ -96,7 +90,7 @@
       <origin xyz="0 0 0"/>
       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
     </inertial>
-    <visual name="base_visual">
+    <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
         <mesh filename="package://amr_robots_description/meshes/p3dx_meshes/back_sonar.stl"/>
@@ -105,12 +99,6 @@
         <color rgba="0.715 0.583 0.210 1.0"/>
       </material>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size="0 0 0"/>
-      </geometry>
-    </collision>
   </link>
   <!-- Caster -->
   <joint name="base_caster_swivel_joint" type="continuous">
@@ -127,7 +115,7 @@
       <origin xyz="0 0 0"/>
       <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
     </inertial>
-    <visual name="pioneer_geom">
+    <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
         <mesh filename="package://amr_robots_description/meshes/p3dx_meshes/caster_swivel.stl"/>
@@ -136,12 +124,6 @@
         <color rgba="0.5 0.5 0.5 1"/>
       </material>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size="0 0 0"/>
-      </geometry>
-    </collision>
   </link>
   <gazebo reference="caster_swivel">
     <material value="Gazebo/Grey"/>
@@ -153,7 +135,7 @@
       <origin xyz="0 0 0"/>
       <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983" iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
     </inertial>
-    <visual name="pioneer_geom">
+    <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
         <mesh filename="package://amr_robots_description/meshes/p3dx_meshes/caster_hubcap.stl"/>
@@ -187,7 +169,7 @@
       <origin xyz="0 0 0"/>
       <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983" iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
     </inertial>
-    <visual name="pioneer_geom">
+    <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="pioneer_geom">
         <mesh filename="package://amr_robots_description/meshes/p3dx_meshes/caster_wheel.stl"/>

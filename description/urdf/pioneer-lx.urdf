@@ -11,7 +11,7 @@
       <!-- 60 kg minus each wheel -->
       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
     </inertial>
-    <visual name="base_link_visual">
+    <visual>
       <geometry name="base_link_visual_geom">
         <mesh filename="package://amr_robots_description/meshes/pioneer-lx/pioneer-lx_visual.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -33,7 +33,7 @@
     </inertial>
     <!--
 TODO separate out pioner lx wheels in visual model 
-    <visual name="r_wheel_dumb_visual">
+    <visual>
       <geometry name="r_wheel_dumb_visual_geom">
         <cylinder radius="0.100" length="0.05" />
       </geometry>
@@ -55,7 +55,7 @@ TODO separate out pioner lx wheels in visual model
       <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.01"/>
     </inertial>
     <!--
-    <visual name="l_wheel_dumb_visual">
+    <visual>
       <geometry name="l_wheel_dumb_visual_geom">
         <cylinder radius="0.100" length="0.05" />
       </geometry>
@@ -82,7 +82,7 @@ TODO separate out pioner lx wheels in visual model
   </joint>
   <!-- pioneer lx deck -->
   <link name="deck">
-    <visual name="deck_visual">
+    <visual>
       <geometry name="deck_visual_geom">
         <box size="0.407 0.437 0.076"/>
       </geometry>

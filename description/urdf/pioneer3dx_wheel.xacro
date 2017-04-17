@@ -21,7 +21,7 @@
       <inertia ixx="0.012411765597" ixy="0" ixz="0"
          iyy="0.015218160428" iyz="0" izz="0.011763977943"/>
       </inertial>
-    <visual name="base_visual">
+    <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry name="pioneer_geom">
         <mesh filename="package://amr_robots_description/meshes/p3dx_meshes/${suffix}_wheel.stl"/>
@@ -54,7 +54,7 @@
       <inertia ixx="0.012411765597" ixy="0" ixz="0"
          iyy="0.015218160428" iyz="0" izz="0.011763977943"/>
       </inertial>
-  <visual name="base_visual">
+  <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry name="pioneer_geom">
       <mesh filename="package://amr_robots_description/meshes/p3dx_meshes/${suffix}_hubcap.stl"/>

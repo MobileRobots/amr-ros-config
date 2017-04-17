@@ -53,7 +53,7 @@ right dimensions.
 		iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726" />
     </inertial>
 
-    <visual name="base_visual">
+    <visual>
       <origin xyz="-${base_center_offset} 0 ${base_size_z/2}" rpy="0 0 0" />
       <geometry name="base_visual_geom">
 	<box size="${base_size_x} ${base_size_y} ${base_size_z}" />

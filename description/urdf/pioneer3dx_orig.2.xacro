@@ -14,7 +14,7 @@
                iyy="1" iyz="0"
                izz="1"/>
   	 	</inertial>
-      <visual name="base_visual">
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry name="pioneer_geom">
 					<mesh filename="package://p2os_urdf/meshes/body.stl"/>
@@ -39,7 +39,7 @@
                iyy="1" iyz="0"
                izz="1"/>
   	 	</inertial>
-      <visual name="base_visual">
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry name="pioneer_geom">
 					<mesh filename="package://p2os_urdf/meshes/chassis_top.stl"/>
@@ -49,12 +49,6 @@
 				</material>
 
 			</visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0 0 0"/>
-        </geometry>
-      </collision>
 	</link>
 
 
@@ -66,7 +60,7 @@
                iyy="1" iyz="0"
                izz="1"/>
   	 	</inertial>
-      <visual name="base_visual">
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry name="pioneer_geom">
 					<mesh filename="package://p2os_urdf/meshes/top_plate.stl"/>
@@ -75,12 +69,6 @@
 					<color rgba="0 0 0 1"/>
 				</material>
 			</visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0 0 0"/>
-        </geometry>
-      </collision>
 	</link>
 
 	<link name="caster_plate">
@@ -91,7 +79,7 @@
                iyy="1" iyz="0"
                izz="1"/>
   	 	</inertial>
-      <visual name="base_visual">
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry name="pioneer_geom">
 					<mesh filename="package://p2os_urdf/meshes/caster_plate.stl"/>
@@ -100,12 +88,6 @@
 					<color rgba="0.5 0.5 0.5 1"/>
 				</material>
 			</visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0 0 0"/>
-        </geometry>
-      </collision>
 	</link>
 	<link name="caster_mount">
 			<inertial>
@@ -115,7 +97,7 @@
                iyy="1" iyz="0"
                izz="1"/>
   	 	</inertial>
-      <visual name="base_visual">
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry name="pioneer_geom">
 					<mesh filename="package://p2os_urdf/meshes/caster_mount.stl"/>
@@ -124,12 +106,6 @@
 					<color rgba="0.5 0.5 0.5 1"/>
 				</material>
 			</visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0 0 0"/>
-        </geometry>
-      </collision>
 	</link>
 
 	<link name="sonar">
@@ -140,7 +116,7 @@
                iyy="1" iyz="0"
                izz="1"/>
   	 	</inertial>
-      <visual name="base_visual">
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry name="pioneer_geom">
 					<mesh filename="package://p2os_urdf/meshes/sonars.stl"/>
@@ -149,12 +125,6 @@
 					<color rgba=".71875 0.48828125 0 1"/>
 				</material>
 			</visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0 0 0"/>
-        </geometry>
-      </collision>
 	</link>
 	<link name="wheels_link">
 			<inertial>
@@ -164,7 +134,7 @@
                iyy="1" iyz="0"
                izz="1"/>
   	 	</inertial>
-      <visual name="base_visual">
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry name="pioneer_geom">
 					<mesh filename="package://p2os_urdf/meshes/wheels-center.stl"/>
@@ -173,12 +143,6 @@
 					<color rgba=".71875 0.48828125 0 1"/>
 				</material>
 			</visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0 0 0"/>
-        </geometry>
-      </collision>
 	</link>
 	<link name="tires">
 			<inertial>
@@ -188,7 +152,7 @@
                iyy="1" iyz="0"
                izz="1"/>
   	 	</inertial>
-      <visual name="base_visual">
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry name="pioneer_geom">
 					<mesh filename="package://p2os_urdf/meshes/tires.stl"/>
@@ -197,12 +161,6 @@
 					<color rgba="0 0 0 1"/>
 				</material>
 			</visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0 0 0"/>
-        </geometry>
-      </collision>
 	</link>
 	<joint name="base_top_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0"/>
